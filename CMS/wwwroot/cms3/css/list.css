@@ -1,0 +1,48 @@
+
+
+
+.side-menu
+{
+    background-color: #dee2e6;
+    padding: 20px 10px;
+  
+}
+
+#categories, #content-status
+{
+    margin-bottom: 10px;
+}
+
+.side-menu .category, .side-menu .status
+{
+    cursor: pointer;
+    list-style: none;
+    border: 1px solid silver;
+    padding: 3px 12px;
+    margin-bottom: 10px;
+}
+
+.side-menu .tag
+{
+    float: left;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid silver;
+    
+    padding: 3px 12px;
+}
+
+body.ar .side-menu .tag
+{
+    float: right;
+}
+
+.regContentBgClor {
+    color: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 10px;
+}
+

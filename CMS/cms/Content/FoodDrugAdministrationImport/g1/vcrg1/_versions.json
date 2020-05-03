@@ -1,0 +1,32 @@
+{
+  
+  "publishedVersion": "1.1",
+  "latestVersion": "1.2",
+  "latestVersionStatus": "Draft",
+  "versions": [
+    {
+      "number": "1.0",
+      "changes": "{\"changes\":\"published\"}",
+      "modified": "2020-03-01T13:54:04.4423413+03:00",
+      "modifiedBy": "cms_test_3",
+      "published": "2020-03-01T13:54:42.1231942+03:00",
+      "publishedBy": "cms_test_3"
+    },
+    {
+      "number": "1.1",
+      "changes": "{\"changes\":\"updated\"}",
+      "modified": "2020-03-01T13:56:39.9171716+03:00",
+      "modifiedBy": "cms_test_3",
+      "published": "2020-03-01T13:56:53.2036424+03:00",
+      "publishedBy": "cms_test_3"
+    },
+    {
+      "number": "1.2",
+      "changes": null,
+      "modified": "2020-03-02T15:27:51.0296181+03:00",
+      "modifiedBy": "cms_test_2",
+      "published": "0001-01-01T00:00:00",
+      "publishedBy": null
+    }
+  ]
+}

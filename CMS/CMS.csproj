@@ -1,0 +1,123 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UserSecretsId>635df0c8-b363-4934-935c-cdcbd5a69ed1</UserSecretsId>
+    <StartupObject>CMS.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="0Content\**" />
+    <Compile Remove="git\**" />
+    <Compile Remove="Models\Custom\**" />
+    <Compile Remove="wwwroot\css\**" />
+    <Compile Remove="wwwroot\js\**" />
+    <Compile Remove="wwwroot\Logs\**" />
+    <Compile Remove="wwwroot\new\**" />
+    <Content Remove="0Content\**" />
+    <Content Remove="git\**" />
+    <Content Remove="Models\Custom\**" />
+    <Content Remove="wwwroot\css\**" />
+    <Content Remove="wwwroot\js\**" />
+    <Content Remove="wwwroot\Logs\**" />
+    <Content Remove="wwwroot\new\**" />
+    <EmbeddedResource Remove="0Content\**" />
+    <EmbeddedResource Remove="git\**" />
+    <EmbeddedResource Remove="Models\Custom\**" />
+    <EmbeddedResource Remove="wwwroot\css\**" />
+    <EmbeddedResource Remove="wwwroot\js\**" />
+    <EmbeddedResource Remove="wwwroot\Logs\**" />
+    <EmbeddedResource Remove="wwwroot\new\**" />
+    <None Remove="0Content\**" />
+    <None Remove="git\**" />
+    <None Remove="Models\Custom\**" />
+    <None Remove="wwwroot\css\**" />
+    <None Remove="wwwroot\js\**" />
+    <None Remove="wwwroot\Logs\**" />
+    <None Remove="wwwroot\new\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\ServicesController - Copy.cs" />
+    <Compile Remove="Models\Log.cs" />
+    <Compile Remove="WeatherForecast.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include=".config\dotnet-tools.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.10.0" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Novell.Directory.Ldap.NETStandard" Version="3.0.1" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
+    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+    <PackageReference Include="System.DirectoryServices" Version="4.7.0" />
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\forms\FoodDrugAdministrationExport\edit.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\forms\FoodDrugAdministrationExport\js\edit.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\forms\FoodDrugAdministrationExport\js\view.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\forms\FoodDrugAdministrationExport\view.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\forms\FoodDrugAdministrationImport\edit.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\forms\FoodDrugAdministrationImport\js\edit.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\forms\FoodDrugAdministrationImport\js\view.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\forms\FoodDrugAdministrationImport\view.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\forms\PermitProcedure_Export\js\edit.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\forms\PermitProcedure_Export\js\view.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="log\" />
+  </ItemGroup>
+
+</Project>

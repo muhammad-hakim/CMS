@@ -1,0 +1,30 @@
+{
+    "code": "TheCommunicationsandInformationTechnologyAuthorityUserGuideImport",
+    "logoLink": "/cms3/new/assets/images/component5.png",
+
+    "type": "kb",
+    "name": {
+        "ar": "هيئة الاتصالات وتقنية المعلومات",
+        "en": "The Communications and Information Technology Authority (Import)"
+    },
+    "categories": [
+        {
+            "en": "Import",
+            "ar": "إستيراد"
+        }
+    ],
+    "description": {
+        "ar": "",
+        "en": ""
+    },
+    "more": {
+        "ar": "التفاصيل",
+        "en": "More details"
+    },
+
+    "access_readers": [ "cms_test_admin", "cms_sfda_readers" ],
+    "access_editors": [ "cms_test_admin", "cms_sfda_editors" ],
+    "access_publishers": [ "cms_test_admin", "cms_sfda_publishers" ],
+    "access_comment": [ "cms_test_admin", "cms_sfda_readers" ],
+    "access_rate": [ "cms_test_admin", "cms_sfda_readers" ]
+}

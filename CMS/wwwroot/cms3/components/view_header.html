@@ -1,0 +1,226 @@
+﻿<div id="fasahHeader">
+    <header class="navBar" v-bind:class="{sticky: isSticky}" v-bind:style="{top:headerTop}">
+        <div class="container">
+            <a href="https://fasah.sa" class="logo mobLogo"></a>
+            <div class="navBarBtn" @click="navBarToggle" v-bind:class="{opened: navBarOpened}">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <transition name="slide">
+                <div class="navBarr_inner" v-show="navBarOpened">
+                    <a href="https://fasah.sa" class="logo"></a>
+                    <a href="https://www.fasah.sa/trade/home/ar/services.html" data-i18n="fasahHeader.header_services"></a>
+                    <a href="https://www.fasah.sa/24hour/"
+                       target="_blank" data-i18n="fasahHeader.header_initiative_24"></a>
+                    <a target="_blank"
+                       href="https://www.fasah.sa/sanam/sau/SAUTrackingServlet?action_=trackingHome&locale=[[LG]]" data-i18n="fasahHeader.header_masar"></a>
+
+                    <a target="_blank" href="https://vin.fasah.sa" data-i18n="fasahHeader.header_vinCheck"></a>
+                    <a target="_blank"
+                       href="'https://www.fasah.sa/trade/sau/html/ar_SA/index.html?lang=[[LG]]" data-i18n="fasahHeader.header_openData"></a>
+
+                    <div class="dropdown">
+
+                        <span data-i18n="fasahHeader.header_licenses"></span>
+                        <transition name="slide">
+                            <div class="dropdown_menu">
+                                <a target="_blank" href="https://signup.fasah.sa/" data-i18n="fasahHeader.header_licenses_mawaniLicenses">
+                                    <span data-i18n="fasahHeader.header_licenses_mawaniLicenses"></span>
+                                </a>
+                                <a target="_blank" href="https://cbroker.fasah.sa/">
+                                    <span data-i18n="fasahHeader.header_licenses_custom_broker_license"></span>
+                                </a>
+                            </div>
+                        </transition>
+                    </div>
+
+                    <div class="dropdown">
+
+                        <span data-i18n="fasahHeader.pdfs_h2"></span>
+                        <transition name="slide">
+                            <div class="dropdown_menu">
+                                <a target="_blank"
+                                   href="https://www.fasah.sa/trade/home/assets/pdfs/new-user-registration-in-fasah-services.pdf">
+                                    <img :src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                    <span data-i18n="fasahHeader.pdfs_newUser"></span>
+                                </a>
+                                <a target="_blank"
+                                   href="https://www.fasah.sa/trade/home/assets/pdfs/fasah-registration-form-terms-and-condition.pdf">
+                                    <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                    <span data-i18n="fasahHeader.pdfs_services"></span>
+                                </a>
+                                <a target="_blank"
+                                   href="https://www.fasah.sa/trade/home/assets/pdfs/de-registrations-form-from-fasah-services.pdf">
+                                    <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                    <span data-i18n="fasahHeader.pdfs_deReg"></span>
+                                </a>
+                                <a target="_blank"
+                                   href="https://www.fasah.sa/trade/home/assets/pdfs/re-registrations-form-in-fasah-services.pdf">
+                                    <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                    <span data-i18n="fasahHeader.pdfs_reReg"></span>
+                                </a>
+                                <a target="_blank"
+                                   href="https://www.fasah.sa/trade/home/assets/pdfs/reactive-user-id-form-in-fasah-services.pdf">
+                                    <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                    <span data-i18n="fasahHeader.pdfs_reActive"></span>
+                                </a>
+                                <a target="_blank"
+                                   href="https://www.fasah.sa/trade/home/assets/pdfs/password-reset-form-in-fasah-services.pdf">
+                                    <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                    <span data-i18n="fasahHeader.pdfs_resetPass"></span>
+                                </a>
+                                <a target="_blank"
+                                   href="https://www.fasah.sa/trade/home/assets/pdfs/application-form-agreement-of-electronic-payment-services.pdf">
+                                    <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                    <span data-i18n="fasahHeader.pdfs_agreement"></span>
+                                </a>
+                                <a target="_blank"
+                                   href="https://www.fasah.sa/trade/home/assets/pdfs/update-email-form-in-fasah-services.pdf">
+                                    <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                    <span data-i18n="fasahHeader.pdfs_updateEmail"></span>
+                                </a>
+                                <a target="_blank"
+                                   href="https://www.fasah.sa/trade/home/assets/pdfs/suspension-request-form-in-fasah-services.pdf">
+                                    <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                    <span data-i18n="fasahHeader.pdfs_suspension"></span>
+                                </a>
+                            </div>
+                        </transition>
+                    </div>
+                    <a href="https://www.fasah.sa/" data-i18n="fasahHeader.header_contact"></a>
+                    <span>|</span>
+                    <span class="langSwitch"></span>
+                    <!--<a href="javascript:void(0)" @click="LoginLogoutUser()">{{isUserLoggedin()?"Logout":"Login"}}</a>-->
+
+                    <a @click="LoginLogoutUser(vueLoggedinstatus)" href="javascript:void(0)"
+                       class="login_btn">
+                        <img src="/cms3/new/assets/images/login_person.svg" />
+
+                        <span v-if="vueLoggedinstatus === 'Logout'" data-i18n="logout"></span>
+                        <span v-if="vueLoggedinstatus !== 'Logout'" data-i18n="fasahHeader.header_login"></span>
+                    </a>
+                </div>
+            </transition>
+
+        </div>
+
+
+    </header>
+</div>
+<div class="header_spacer"></div>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/cms3/ui/[[LG]]">CMS</a>
+    <a class="navbar-brand">/</a> <a class="navbar-brand" href="/cms3/ui/[[LG]]/[[SITE]]">[[SITENAME]]</a>
+    <a class="navbar-brand">/</a> <a class="navbar-brand" href="/cms3/ui/[[LG]]/[[SITE]]/[[CONTENT]]/[[VERSION]]/view">[[CONTENT]] ([[VERSION]])</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+
+        <div v-if="!alreadyRejected()">
+            <p v-if="canShowRegNotes()"><b class="text-danger regNotes">Rejection Note* : {{regNotes}}</b></p>
+        </div>
+        <div v-if="alreadyDeleted()">
+            <button v-if="canDeletePropVals()" class="btn btn-outline-primary my-2 my-sm-0" type="button" onclick="contentApp.delete()" data-i18n="reject">Delete</button>
+        </div>
+        <div v-if="alreadyRejected()">
+            <button v-if="canRejectPropVals()" class="btn btn-outline-primary my-2 my-sm-0" type="button" onclick="contentApp.reject()" data-i18n="reject">Reject</button>
+            <!--<button v-else="canRejectPropValsone()" class="btn btn-outline-primary my-2 my-sm-0" type="button" onclick="contentApp.reject()" data-i18n="reject">Reject</button>-->
+        </div>
+
+        <div v-if="alreadyHided()">
+            <button v-if="canHidePropVals()" class="btn btn-outline-primary my-2 my-sm-0" type="button" onclick="contentApp.hide()" data-i18n="reject">Hide</button>
+            <!--<button v-else="canRejectPropValsone()" class="btn btn-outline-primary my-2 my-sm-0" type="button" onclick="contentApp.reject()" data-i18n="reject">Reject</button>-->
+        </div>
+        <div v-if="alreadyHidedShow()">
+            <button v-if="canHidePropVals()" class="btn btn-outline-primary my-2 my-sm-0" type="button" onclick="contentApp.unhide()" data-i18n="reject">Show</button>
+            <!--<button v-else="canRejectPropValsone()" class="btn btn-outline-primary my-2 my-sm-0" type="button" onclick="contentApp.reject()" data-i18n="reject">Reject</button>-->
+        </div>
+
+
+
+
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-outline-primary my-2 my-sm-0" data-toggle="modal" data-target="#myModal" data-i18n="view_versions">View versions</button>
+
+        <!--<button v-if="canCompare" class="btn btn-outline-primary my-2 my-sm-0" type="button" v-on:click="compare()" :data-i18n="compare1">Compare with Previous</button>-->
+        <button class="btn btn-outline-primary my-2 my-sm-0" v-for="link, i in Object.keys(links)" type="button" v-on:click="action(link, links[link])" :data-i18n="link">{{link}}</button>
+        <div id="header_options_custom">
+
+        </div>
+
+        <!--<a class="btn btn-primary left" href="/cms3/ui/[[LG]]?logout=true" data-i18n="logout">Logout</a>-->
+    </div>
+</nav>
+<div class="wide wide_search wide_search--inner relative">
+    <div class="wide--bg white">
+        <div class="container quick-links">
+            <div class="row">
+                <ul class="quick-links--list">
+                    <li>
+                        <a href="#"><img src="/cms3/new/assets/images/icons/video-icon.svg"> <span>فيديو</span></a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/cms3/new/assets/images/icons/reports.svg"> <span>
+                                نماذج وضوابط
+                                تنظيمية
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/cms3/new/assets/images/icons/links.svg"> <span>
+                                روابط مهمة لتيسير
+                                التجارة
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="/cms3/new/assets/images/icons/statistics.svg"> <span>
+                                مؤشرات أدء عامة
+                                وإحصائيات
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row text-right">
+            <div class="col-12">
+                <h2 class="title_1" data-i18n="guideline_Title">الدليل المبسط لضوابط الاستيراد والتصدير في المملكة العربية السعودية</h2>
+
+            </div>
+        </div>
+
+
+
+    </div>
+    <!--<div class="wide-search ">
+        <div class="container">
+            <div class="row search-row">
+                <div class="col-12 mt_2">
+                    <form>
+                        <div class="relative relative_search">
+                            <input type="text" class="main_search form-control"
+                                   placeholder="البحث، الصنف أو الوصف أو البند" />
+                            <button type="submit" class="btn-primary btn-search">بحث</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>
+
+
+

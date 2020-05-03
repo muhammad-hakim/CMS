@@ -1,0 +1,409 @@
+html, body {
+    direction: rtl;
+    text-align: right;
+}
+
+body {
+    font-family: 'BahijTheSansArabic-Light';
+}
+
+.pageTitle {
+    font-family: 'BahijTheSansArabic-Light';
+    font-weight: bold;
+}
+
+.navBar {
+    font-weight: bold;
+}
+
+.navBar a.mobLogo {
+    float: right;
+    margin-right: 0;
+}
+
+.navBarBtn {
+    float: left;
+    margin-right: 0;
+}
+
+.navBarr_inner {
+    text-align: right;
+}
+
+.login_btn img {
+    margin-right: 0;
+    margin-left: 12px;
+}
+
+.dropdown::before {
+    right: auto;
+    left: -10px;
+}
+
+.dropdown_menu {
+    right: 0;
+    left: auto;
+}
+
+.dropdown_menu a {
+    text-align: right;
+}
+
+.ship {
+    right: auto;
+    left: 20px;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.blocks1 {
+    right: auto;
+    left: 0;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.blocks2 {
+    left: auto;
+    right: 0;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.main_content h2 {
+    font-weight: bold;
+}
+
+.main_content h3 {
+    font-family: 'BahijTheSansArabic-Light';
+}
+
+.main_contentBtns>a {
+    font-size: 18px;
+    line-height: 24px;
+    padding: 11px 26px;
+    background: #1DC1DD;
+    color: #fff;
+    display: inline-block;
+    margin-left: 22px;
+    margin-right: 0;
+}
+
+.mainTitle {
+    font-family: 'BahijTheSansArabic-Light';
+    font-weight: bold;
+}
+
+.ss__txt h2 {
+    font-weight: bold;
+}
+
+.ss__txt p {
+    font-family: inherit;
+}
+
+.statistics_el {
+    float: right;
+}
+
+button.slick-next {
+    right: auto;
+    left: 0px;
+    transform: rotate(180deg);
+}
+
+button.slick-prev {
+    left: auto;
+    right: 0px;
+    transform: rotate(0deg);
+}
+
+.bigTabs>div {
+    margin-right: 0px;
+    margin-left: 25px;
+}
+
+.bigTabs>div:last-child {
+    margin-left: 0;
+}
+
+.smallTabs>div {
+    margin-right: 0;
+    margin-left: 60px;
+}
+
+.smallTabs>div:last-child {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.map_nums h3 {
+    font-family: inherit;
+}
+
+.map_nums h2 {
+    font-weight: bold;
+}
+
+.map_years {
+    margin-right: 0;
+    margin-left: 120px;
+}
+
+.download h2 {
+    font-weight: bold;
+}
+
+.download_phones {
+    left: 0;
+    right: auto;
+}
+
+.map_actual {
+    float: left;
+}
+
+.newsDetailed_img {
+    float: left;
+    margin-left: 0px;
+    margin-right: 30px;
+}
+
+.news_el a {
+    right: auto;
+    left: 20px;
+}
+
+.news_arrow img {
+    margin-left: 0px;
+    margin-right: 5px;
+    transform: rotate(180deg);
+}
+
+.news_arrow:hover img {
+    margin-left: 0px;
+    margin-right: 10px;
+}
+
+.download_apps a {
+    margin-right: 0px;
+    margin-left: 10px;
+}
+
+.download_apps a:last-child {
+    margin-left: 0px;
+}
+
+.footer_social {
+    float: left;
+}
+
+.footer_social a {
+    margin-left: 0px;
+    margin-right: 10px;
+}
+
+.footer_nav a {
+    margin-left: 30px;
+    margin-right: 0;
+}
+
+.footer_nav a:last-child {
+    margin-right: 30px;
+    margin-left: 0px;
+}
+
+.lowerFooter_powered {
+    float: left;
+}
+
+.lowerFooter_powered a {
+    margin-left: 0px;
+    margin-right: 10px;
+}
+
+.lowerFooter_powered img {
+    margin-right: 19px;
+    margin-left: 0;
+}
+
+.cotanctUs_close {
+    float: left;
+}
+
+.contanctUs_list img {
+    margin-right: 0px;
+    margin-left: 10px;
+}
+
+.cotanctUs button {
+    float: left;
+}
+
+.backBtn {
+    float: left;
+}
+
+.services_body h2 {
+    font-weight: bold;
+}
+
+.services_nav ul>li img {
+    margin-left: 10px;
+}
+
+@media(max-width:768px) {
+    .map_years {
+        margin-right: 60px;
+        margin-left: 70px;
+    }
+    .download_phones {
+        right: auto;
+        left: 15px;
+    }
+    .services_nav ul>li img {
+        margin-left: auto;
+    }
+}
+
+.services_ul>li:before {
+    right: -26px;
+}
+
+.services_intro h2 {
+    font-weight: bold;
+}
+
+.services_intro::before {
+    -moz-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+    right: auto;
+    left: -20px;
+}
+
+.services_intro::after {
+    right: 0;
+    left: auto;
+    -moz-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.services_area_background {
+    right: auto;
+    left: 0;
+    -moz-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.backBtn::after {
+    margin-left: 0;
+    margin-right: 10px;
+    transform: rotate(130deg);
+}
+
+span.hint {
+    float: left;
+}
+
+.partners_slider a {
+    float: right;
+}
+
+.stickyNav h2 {
+    font-family: 'BahijTheSansArabic-Light';
+    font-weight: bold;
+}
+
+.fancyUl>li {
+    padding-right: 20px;
+}
+
+.fancyUl li::before {
+    left: auto;
+    right: 0;
+}
+
+.numbered i {
+    margin-right: 0;
+    margin-left: 18px;
+}
+
+.floatedImg {
+    float: left;
+    margin-left: 0;
+    margin-right: 40px;
+}
+
+.oga_banner {
+    background-image: url('../images/oga_banner_ar.png');
+}
+
+@media (max-width: 767px) {
+    .services_nav ul>li img {
+        margin-left: auto;
+    }
+    .services_nav ul>li {
+        margin-right: 0;
+        margin-left: 10px;
+    }
+    .services_nav ul>li:last-child {
+        margin-left: 0;
+    }
+    .smallTabs>div {
+        margin-left: 7%;
+    }
+    .map_years {
+        margin-right: 0;
+    }
+    .map_years .year:after {
+        right: auto;
+    }
+    .map_years .year.active:after {
+        right: auto;
+    }
+    .map_actual {
+        float: none;
+    }
+    .footer_social {
+        float: none;
+    }
+    .footer_nav a {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .footer_nav a:last-child {
+        margin-right: 0px;
+    }
+    .lowerFooter_powered {
+        float: none;
+        width: 100%;
+    }
+    .newsDetailed_img {
+        margin: 0;
+        float: none;
+    }
+}

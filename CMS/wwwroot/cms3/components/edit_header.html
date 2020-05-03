@@ -1,0 +1,45 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/cms3/ui/[[LG]]">CMS</a> 
+        <a class="navbar-brand">/</a> <a class="navbar-brand" href="/cms3/ui/[[LG]]/[[SITE]]">[[SITENAME]]</a> 
+        <a class="navbar-brand">/</a> <a class="navbar-brand" href="/cms3/ui/[[LG]]/[[SITE]]/[[CONTENT]]/[[VERSION]]/view">[[CONTENT]] ([[VERSION]])</a> 
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <form id="header_options" class="form-inline my-2 my-lg-0">
+            <!--<div v-if="!alreadyRejected()">
+                <p class="regContentBgClor" v-if="canShowRegNotes()"><b>Rejection Note* : {{regNotes}}</b></p>
+            </div>-->
+            <div>
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="button" onclick="contentApp.save()" data-i18n="save">Save</button>
+            </div>
+            <!--<div v-if="alreadyDeleted()">
+                <button v-if="canDeletePropVals()" class="btn btn-outline-primary my-2 my-sm-0" type="button" onclick="contentApp.delete()" data-i18n="reject">Delete</button>
+            </div>
+            <div v-if="alreadyRejected()">
+                <button v-if="canRejectPropVals()" class="btn btn-outline-primary my-2 my-sm-0" type="button" onclick="contentApp.reject()" data-i18n="reject">Reject</button>
+            </div>
+
+            <div v-if="alreadyHided()">
+                <button v-if="canHidePropVals()" class="btn btn-outline-primary my-2 my-sm-0" type="button" onclick="contentApp.hide()" data-i18n="reject">Hide</button>
+            </div>
+            <div v-if="alreadyHidedShow()">
+                <button v-if="canHidePropVals()" class="btn btn-outline-primary my-2 my-sm-0" type="button" onclick="contentApp.unhide()" data-i18n="reject">Show</button>
+            </div>-->
+            <div>
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="button" onclick="contentApp.cancel()" data-i18n="cancel">Cancel</button>
+            </div>
+        </form>
+        <div id="header_options_custom">
+
+        </div>
+        <!--<a class="btn btn-primary left" href="/cms3/ui/[[LG]]?logout=true" data-i18n="logout">Logout</a>-->
+        <a class="btn btn-primary left" @click="LoginLogoutUser(vueLoggedinstatus)">{{vueLoggedinstatus}}</a>
+        <!--<a href="javascript:void(0)" @click="LoginLogoutUser()">{{isUserLoggedin()?"Logout":"Login"}}</a>-->
+    </div>
+</nav>

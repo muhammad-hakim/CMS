@@ -1,0 +1,32 @@
+{
+  
+  "isNew": false,
+  "siteCode": "FoodDrugAdministrationImport",
+  "code": "testcodeforfg",
+  "version": "1.1",
+  "category": "",
+  "subject": {
+    "ar": "testcodeforfgdeleted",
+    "en": null
+  },
+  "description": {
+    "ar": "testcodeforfg",
+    "en": null
+  },
+  "tags": {
+    "ar": null,
+    "en": null
+  },
+  "ratingsValue": 0,
+  "countPublishedComments": 0,
+  "countVotes": 0,
+  "body": "{\"duration\":{},\"steps\":{},\"requirements\":{},\"attachments\":{},\"requirements1\":{\"ar\":{\"name\":\"\",\"serviceTime\":\"\",\"serviceCost\":\"\",\"serviceDescription\":\"\",\"BeneficiaryCategory\":\"\",\"serviceUse\":\"\",\"BasicRequirment\":\"\"},\"en\":{},\"attachmentKey\":\"req1\"},\"requirements2\":{\"ar\":{\"name\":\"testcodeforfgreq2\",\"serviceTime\":\"3\",\"serviceCost\":\"23\",\"serviceDescription\":\"<p>testcodeforfgreq2</p>\",\"BeneficiaryCategory\":\"<p>testcodeforfgreq2</p>\",\"serviceUse\":\"<p>testcodeforfgreq2</p>\",\"BasicRequirment\":\"<p>testcodeforfgreq2</p>\"},\"en\":{},\"attachmentKey\":\"req2\"},\"requirements3\":{\"ar\":{\"name\":\"testcodeforfgreq3\",\"serviceTime\":\"6\",\"serviceCost\":\"66\",\"serviceDescription\":\"<p>testcodeforfgreq3</p>\",\"BeneficiaryCategory\":\"<p>testcodeforfgreq3</p>\",\"serviceUse\":\"<p>testcodeforfgreq3</p>\",\"BasicRequirment\":\"<p class=\\\"ql-direction-rtl ql-align-right\\\">testcodeforfgreq3</p>\"},\"en\":{},\"attachmentKey\":\"req3\"},\"requirements4\":{\"list1\":{},\"list2\":{},\"attachmentKey\":\"req4\"},\"requirements5\":{\"list1\":{},\"list2\":{},\"attachmentKey\":\"req5\"},\"url\":{},\"serviceUrl_ar\":\"https://www.sfda.gov.sa/ar/pages/default.aspx\",\"guidelineURL_ar\":\"http://sfdaservice.sfda.gov.sa/\"}",
+  "publishedOnly": true,
+  "IsReject": true,
+  "IsDelete": false,
+  "IsHide": false,
+  "attachments": [],
+  "CanComment": false,
+  "CanRate": false,
+  "CanViewHistory": true
+}

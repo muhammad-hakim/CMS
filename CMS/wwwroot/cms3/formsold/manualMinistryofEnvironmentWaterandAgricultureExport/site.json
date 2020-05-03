@@ -1,0 +1,31 @@
+{
+    "code": "manualMinistryofEnvironmentWaterandAgricultureExport",
+    "logoLink": "/cms3/new/assets/images/component.png",
+
+    "type": "kb",
+    "name": {
+        "ar": "وزارة البيئة والمياه والزراعة",
+        "en": "Ministry of Environment Water and Agriculture (Export)"
+    },
+
+    "categories": [
+        {
+            "en": "Export",
+            "ar": "تصدير"
+        }
+    ],
+    "description": {
+        "ar": "",
+        "en": ""
+    },
+    "more": {
+        "ar": "التفاصيل",
+        "en": "More details"
+    },
+
+    "access_readers": [ "cms_test_admin", "cms_sfda_readers" ],
+    "access_editors": [ "cms_test_admin", "cms_sfda_editors" ],
+    "access_publishers": [ "cms_test_admin", "cms_sfda_publishers" ],
+    "access_comment": [ "cms_test_admin", "cms_sfda_readers" ],
+    "access_rate": [ "cms_test_admin", "cms_sfda_readers" ]
+}

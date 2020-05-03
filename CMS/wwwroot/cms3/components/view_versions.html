@@ -1,0 +1,13 @@
+<div v-if="history.versions && history.versions.length" id="history" class="col-md-3 sidebar">
+    <div class="row">
+        <h4 class="col-md-12" data-i18n="versions">Versions:</h4>
+
+        <div class="col-md-12 version" v-for="version in history.versions.slice().reverse()"
+            :class="version.number == history.publishedVersion?'published':''">
+            <div><a :href="'../' + version.number+ '/view'"><span data-i18n="version">Version</span> {{version.number}}</a>  <span v-if="version.number == history.latestVersion">({{history.latestVersionStatus}})</span>:</div>
+            <div><span data-i18n="modified">modified</span>: {{getDate(version.modified)}} <span data-i18n="modifiedBy">by</span> {{version.modifiedBy}}</div>
+            <div v-if="version.publishedBy"><span data-i18n="published">published</span>: {{getDate(version.published)}} <span data-i18n="modifiedBy">by</span> {{version.publishedBy}}</div>
+            <div v-if="version.changes" style="color: gray; text-align: right;"><i>"{{version.changes}}"</i></div>
+        </div>
+    </div>
+</div>

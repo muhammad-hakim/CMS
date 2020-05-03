@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+          crossorigin="anonymous">
+    <link href="/cms3/css/common.css" rel="stylesheet" />
+    <link href="/cms3/css/list.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/cms3/new/assets/css/animate.css">
+    <link rel="stylesheet" href="/cms3/new/assets/css/custom_style.css">
+    <link rel="icon" type="" href="/cms3/new/fav-icon.png">
+</head>
+
+<body class="[[LG]]">
+    <div id="app">
+        <div id="splash">
+            <transition name="fade">
+                <div class="splash" v-if="isSplashNeeded"
+                     style="position:fixed; top:0;left:0;right:0;bottom:0;background-color:#efefef">
+                    <div class="linear-activity">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
+            </transition>
+        </div>
+        <div class="outer_container">
+            <!-- <#Include components/list_header.html> -->
+
+
+            <div class="container content-container" id="site">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="page-title text-blue" data-i18n="products">
+
+                            <!-- {{site.name.[[LG]]}}-->
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div v-if="site.contents.length === 0" class="p_no_result col-12"><p data-i18n="no_products">لا يوجد منتجات </p></div>
+                    <div class="col-sm-6" v-for="content, i in site.contents" v-if="!content.filteredOut && showContent[i] =='true'">
+
+                        <div class="organization organization--category">
+                            <a href="javascript:void(0)" @click="show(i)" class="d-flex">
+                                <div class="o_logo"><img src="/cms3/new/assets/images/category_icons/icon-5.svg"></div>
+
+                                <div class="o_title position-relative" v-if="content.isDelete">
+                                    {{content.subject.[[LG]]}} <b class="regContentBgClor"> Deleted </b>
+                                </div>
+
+                                <div class="o_title position-relative" v-else-if="content.isReject">
+                                    {{content.subject.[[LG]]}} <b class="regContentBgClor"> Rejected </b>
+                                </div>
+                                <div class="o_title position-relative" v-else-if="content.isHide">
+                                    {{content.subject.[[LG]]}} <b class="regContentBgClor"> Hided </b>
+                                </div>
+                                <div class="o_title" v-else>
+                                    {{content.subject.[[LG]]}}
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <footer>
+                <div class="container">
+                    <div class="footer_nav">
+                        <a href="https://www.fasah.sa/trade/home/ar/">
+                            <img src="/cms3/new/assets/images/logo_black.svg"
+                                 class="footer_logo">
+                        </a>
+                        <a href="https://www.fasah.sa/trade/home/ar/services.html" data-i18n="fasahHeader.header_services"></a>
+                        <a target="_blank" href="https://www.fasah.sa/sanam/sau/SAUTrackingServlet?action_=trackingMap#home-nav" data-i18n="fasahHeader.header_masar"></a>
+                        <a href="https://www.fasah.sa/trade/sau/html/ar_SA/index.html" target="_blank" data-i18n="fasahHeader.header_openData">
+                        </a>
+                        <a href="https://www.fasah.sa/" data-i18n="fasahHeader.header_contact"></a>
+                    </div>
+                    <div class="footer_social">
+                        <label data-i18n="fasahHeader.footer_flowUs"></label>
+                        <a href="https://twitter.com/fasah?lang=AR" target="_blank">
+                            <img src="/cms3/new/assets/images/social_twitter.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="seperator"></div>
+                <div class="container">
+                    <div class="lowerFooter">
+                        <div class="lowerFooter_copyrights" data-i18n="fasahHeader.footer_copyrights"></div>
+                        <div class="lowerFooter_powered">
+                            <label data-i18n="fasahHeader.footer_poweredBy"></label> <a href="http://www.tabadul.sa/" target="_blank">
+                                <span data-i18n="fasahHeader.tabadul"></span>
+                                <img src="/cms3/new/assets/images/tabadullogo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    let language = '[[LG]]';
+    let siteCode = '[[SITE]]';
+    if (language == 'ar') {
+        var head = document.getElementsByTagName('head')[0];
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '/cms3/new/assets/css/rtl.css';
+        link.media = 'all';
+        head.appendChild(link);
+    }
+</script>
+
+<!--<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">-->
+<!--<script src="/cms3/vendor/jquery/jquery-3.4.1.min.js" crossorigin="anonymous"></script>-->
+<!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>-->
+
+<link href="/cms3/css/jquery-ui.css" rel="stylesheet" />
+<script src="/cms3/vendor/jquery/jquery-1.12.4.js"></script>
+<script src="/cms3/vendor/jquery/jquery-ui.js"></script>
+
+<script src="/cms3/vendor/i18next/11.6.0/i18next.min.js"></script>
+<script src="/cms3/vendor/i18next/11.6.0/i18nextXHRBackend.min.js"></script>
+<script src="/cms3/vendor/i18next/11.6.0/jquery-i18next.min.js"></script>
+<script src="/cms3/js/localize.js"></script>
+
+<script src="/cms3/vendor/vue/2.6.10/vue.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+<script src="/cms3/js/common.js"></script>
+<script src="/cms3/js/list_header.js"></script>
+<script src="/cms3/js/list.js"></script>

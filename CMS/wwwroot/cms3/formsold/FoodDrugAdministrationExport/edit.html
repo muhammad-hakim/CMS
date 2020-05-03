@@ -1,0 +1,227 @@
+﻿<div class="col-md-12">
+    <div class="form-group">
+        <label>رابط ابدأ الخدمة</label>
+        
+        <input class="form-control" style="direction:ltr;text-align:left;" v-model="content.body.serviceUrl_[[LG]]" />
+    </div>
+    <div class="form-group">
+        <label>رابط دليل المستخدم</label>
+        <input class="form-control" style="direction:ltr;text-align:left;" v-model="content.body.guidelineURL_[[LG]]" />
+    </div>
+
+
+    </div>
+    <br />
+    <div class="col-md-12">
+        <ul class="tabs-edit">
+            <li><a href="javascript:toggleTab('.requirment_1')" onclick="activeTo(this)" class="active">متطلبات الجهة الاولى</a></li>
+            <li><a href="javascript:toggleTab('.requirment_2')" onclick="activeTo(this)">متطلبات الجهة الثانية</a></li>
+            <li><a href="javascript:toggleTab('.requirment_3')" onclick="activeTo(this)">متطلبات الجهة الثالثة</a></li>
+        </ul>
+
+
+        <div class="requirment_1 h-tabs block">
+
+            <input type="hidden" v-model="content.body.requirements1.attachmentKey" value="REQ1" />
+            <div class="form-group">
+                <label>اسم الجهة</label>
+                <input type="text" class="form-control" v-model="content.body.requirements1.[[LG]].name" />
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label><img src="/cms3/new/assets/images/icons/time.svg" width="30"> مدة تنفيذ الخدمة</label>
+                    <input type="text" class="form-control" v-model="content.body.requirements1.[[LG]].serviceTime" />
+                </div>
+                <div class="form-group col-6">
+                    <label><img src="/cms3/new/assets/images/icons/cost.svg" width="24"> رسوم الخدمة</label>
+                    <input type="text" class="form-control" v-model="content.body.requirements1.[[LG]].serviceCost" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label><img src="/cms3/new/assets/images/icons/exponantial.svg"> وصف الخدمة</label>
+                <quill-editor class="editorRich" ref="quillEditor" v-model="content.body.requirements1.[[LG]].serviceDescription"
+                              :options="editorOption">
+                </quill-editor>
+            </div>
+
+            <div class="form-group">
+                <label><img src="/cms3/new/assets/images/icons/people.svg"> الفئة المستفيدة</label>
+                <quill-editor class="editorRich" ref="quillEditor" v-model="content.body.requirements1.[[LG]].BeneficiaryCategory"
+                              :options="editorOption">
+                </quill-editor>
+
+            </div>
+
+            <div class="form-group">
+                <label><img src="/cms3/new/assets/images/icons/settings.svg"> آلية استخدام الخدمة</label>
+                <quill-editor class="editorRich" ref="quillEditor" v-model="content.body.requirements1.[[LG]].serviceUse"
+                              :options="editorOption">
+                </quill-editor>
+
+            </div>
+            <div class="form-group">
+                <label><img src="/cms3/new/assets/images/icons/person_with_quastion_mark.svg"> المتطلبات الأولية</label>
+                <quill-editor class="editorRich" ref="quillEditor" v-model="content.body.requirements1.[[LG]].BasicRequirment"
+                              :options="editorOption">
+                </quill-editor>
+
+            </div>
+        </div>
+
+        <div class="requirment_2 h-tabs">
+
+            <input type="hidden" v-model="content.body.requirements2.attachmentKey" value="REQ2" />
+            <div class="form-group">
+                <label>اسم الجهة</label>
+                <input type="text" class="form-control" v-model="content.body.requirements2.[[LG]].name" />
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label><img src="/cms3/new/assets/images/icons/time.svg" width="30"> مدة تنفيذ الخدمة</label>
+                    <input type="text" class="form-control" v-model="content.body.requirements2.[[LG]].serviceTime" />
+                </div>
+                <div class="form-group col-6">
+                    <label><img src="/cms3/new/assets/images/icons/cost.svg" width="24"> رسوم الخدمة</label>
+                    <input type="text" class="form-control" v-model="content.body.requirements2.[[LG]].serviceCost" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label><img src="/cms3/new/assets/images/icons/exponantial.svg"> وصف الخدمة</label>
+                <quill-editor class="editorRich" ref="quillEditor" v-model="content.body.requirements2.[[LG]].serviceDescription"
+                              :options="editorOption">
+                </quill-editor>
+
+            </div>
+
+            <div class="form-group">
+                <label><img src="/cms3/new/assets/images/icons/people.svg"> الفئة المستفيدة</label>
+                <quill-editor class="editorRich" ref="quillEditor" v-model="content.body.requirements2.[[LG]].BeneficiaryCategory"
+                              :options="editorOption">
+                </quill-editor>
+
+            </div>
+
+            <div class="form-group">
+                <label><img src="/cms3/new/assets/images/icons/settings.svg"> آلية استخدام الخدمة</label>
+                <quill-editor class="editorRich" ref="quillEditor" v-model="content.body.requirements2.[[LG]].serviceUse"
+                              :options="editorOption">
+                </quill-editor>
+
+            </div>
+            <div class="form-group">
+                <label><img src="/cms3/new/assets/images/icons/person_with_quastion_mark.svg"> المتطلبات الأولية</label>
+                <quill-editor class="editorRich" ref="quillEditor" v-model="content.body.requirements2.[[LG]].BasicRequirment"
+                              :options="editorOption">
+                </quill-editor>
+
+            </div>
+        </div>
+
+        <div class="requirment_3 h-tabs">
+            <input type="hidden" v-model="content.body.requirements3.attachmentKey" value="REQ3" />
+
+            <div class="form-group">
+                <label>اسم الجهة</label>
+                <input type="text" class="form-control" v-model="content.body.requirements3.[[LG]].name" />
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label><img src="/cms3/new/assets/images/icons/time.svg" width="30"> مدة تنفيذ الخدمة</label>
+                    <input type="text" class="form-control" v-model="content.body.requirements3.[[LG]].serviceTime" />
+                </div>
+                <div class="form-group col-6">
+                    <label><img src="/cms3/new/assets/images/icons/cost.svg" width="24"> رسوم الخدمة</label>
+                    <input type="text" class="form-control" v-model="content.body.requirements3.[[LG]].serviceCost" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label><img src="/cms3/new/assets/images/icons/exponantial.svg"> وصف الخدمة</label>
+           
+                <quill-editor class="editorRich" ref="quillEditor" v-model="content.body.requirements3.[[LG]].serviceDescription"
+                              :options="editorOption">
+                </quill-editor>
+
+            </div>
+
+            <div class="form-group">
+                <label><img src="/cms3/new/assets/images/icons/people.svg"> الفئة المستفيدة</label>
+                <quill-editor class="editorRich" ref="quillEditor" v-model="content.body.requirements3.[[LG]].BeneficiaryCategory"
+                              :options="editorOption">
+                </quill-editor>
+
+            </div>
+
+            <div class="form-group">
+                <label><img src="/cms3/new/assets/images/icons/settings.svg"> آلية استخدام الخدمة</label>
+                <quill-editor class="editorRich" ref="quillEditor" v-model="content.body.requirements3.[[LG]].serviceUse"
+                              :options="editorOption">
+                </quill-editor>
+
+            </div>
+            <div class="form-group">
+                <label><img src="/cms3/new/assets/images/icons/person_with_quastion_mark.svg"> المتطلبات الأولية</label>
+                <quill-editor class="editorRich" ref="quillEditor" v-model="content.body.requirements3.[[LG]].BasicRequirment"
+                              :options="editorOption">
+                </quill-editor>
+
+            </div>
+        </div>
+
+
+
+        <!--<div class="form-group">
+            <label>OGA</label>
+
+            <select class="form-control" v-model="content.body.oga">
+
+                 <#Lookup OGA >
+
+            </select>
+        </div>-->
+        <!--<div class="form-group">
+            <label>Type</label>
+            <select class="form-control" v-model="content.body.type">
+                <option v-for="proc in getTypes()">{{proc}}</option>
+            </select>
+        </div>-->
+        <!--<div class="form-group">
+            <label>Number</label>
+            <input type="number" class="form-control" v-model="content.body.number" />
+        </div>-->
+        <!--<div class="form-group">
+            <label>Beneficiary</label>
+            <select class="form-control" v-model="content.body.beneficiaries" multiple>
+                <option v-for="ben in getBeneficiaries()">{{ben}}</option>
+            </select>
+        </div>-->
+        <!--<div class="form-group">
+            <label>Duration</label>
+            <input type="text" class="form-control" v-model="content.body.duration.[[LG]]" />
+
+
+            "
+
+            /
+        </div>
+        <div class="form-group">
+            <label>Fees</label>
+            <input type="number" class="form-control" v-model="content.body.fees" />
+        </div>-->
+        <!-- <div class="form-group">
+                        <label>Steps</label>
+                        <input type="text" class="form-control" v-model="content.body.duration"/>
+                    </div> -->
+        <!--<div class="form-group">
+            <label>Steps</label>
+            <textarea class="form-control" v-model="content.body.steps.[[LG]]"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Requirements</label>
+            <textarea class="form-control" v-model="content.body.requirements.[[LG]]"></textarea>
+        </div>-->
+        <!--<div class="form-group">
+            <label>Url</label>
+            <input type="text" class="form-control" v-model="content.body.url.[[LG]]" />
+        </div>-->
+    </div>

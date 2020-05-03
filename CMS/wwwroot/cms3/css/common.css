@@ -1,0 +1,169 @@
+body.ar
+{
+    direction: rtl;
+    text-align: right;
+}
+
+.container, .container-fluid
+{
+    margin-top: 56px;
+}
+
+.container .main, .container-fluid .main
+{
+    padding-top: 20px;
+}
+
+.content
+{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    
+}
+
+.content .title
+{
+    
+    font-weight: bold;
+}
+
+.content .title a
+{
+    cursor: pointer;
+}
+
+.content .title a:hover
+{
+    text-decoration: underline;
+}
+
+.content > div
+{
+    margin-bottom: 10px;
+}
+
+.content .tag
+{
+    cursor: pointer;
+    float: right;
+    margin-left: 10px;
+    border: 1px solid silver;
+    padding: 3px 12px;
+}
+
+body.ar .content .tag
+{
+    float: left;
+}
+
+.content .tag.port
+{
+    background-color:silver;
+}
+
+.tag:hover, .category:hover, .status:hover, .tag.selected, .category.selected, .status.selected
+{
+    color: white !important;
+    border: 1px solid dodgerblue !important;
+    background-color:dodgerblue;
+}
+
+.content .header span
+{
+    font-weight: bold;
+}
+
+.content form table i
+{
+    cursor: pointer;
+    color: silver;
+    
+}
+
+.content form table i:hover
+{
+    color:black;
+    text-decoration: underline;
+    
+}
+
+.content form table th i:hover
+{
+    color:white;
+}
+
+.content table th:first-child
+{
+    width: 30px;
+}
+
+.content form table th:last-child
+{
+    width: 150px;
+}
+
+.sidebar
+{
+    padding: 20px;
+    border-left:1px solid silver;
+    background-color: #dee2e6;
+    overflow-y: auto;
+}
+
+.sidebar .row
+{
+    margin-bottom: 20px;
+}
+
+.sidebar .version
+{
+    margin-bottom: 20px;
+}
+
+nav .btn
+{
+    margin-left: 10px;
+}
+
+#history .published
+{
+    border-left: 2px solid darkgreen;
+}
+
+#history .published a
+{
+    color: darkgreen;
+}
+
+#comments .comment
+{
+    border: 1px solid silver;
+    
+    margin: 0 5px 20px 5px;
+}
+
+#comments .comment .text
+{
+    padding: 10px;
+}
+
+#comments .comment .date
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color:  rgba(0,0,0,.05);
+    border-right: 1px solid silver;
+}
+
+#comments form
+{
+    padding: 10px;
+    border: 1px solid silver;
+    background-color:  rgba(0,0,0,.05);
+}
+
+.regNotes {
+    margin-left: 29px;
+    font-size: 12px;
+}

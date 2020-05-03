@@ -1,0 +1,24 @@
+{
+  
+  "publishedVersion": "1.0",
+  "latestVersion": "1.1",
+  "latestVersionStatus": "Draft",
+  "versions": [
+    {
+      "number": "1.0",
+      "changes": "{\"changes\":\"shaik ali shabbir published\"}",
+      "modified": "2020-03-02T18:01:24.7758012+03:00",
+      "modifiedBy": "cms_test_2",
+      "published": "2020-03-03T09:04:55.7877566+03:00",
+      "publishedBy": "cms_test_3"
+    },
+    {
+      "number": "1.1",
+      "changes": null,
+      "modified": "2020-03-03T10:20:55.9560342+03:00",
+      "modifiedBy": "cms_test_2",
+      "published": "0001-01-01T00:00:00",
+      "publishedBy": null
+    }
+  ]
+}

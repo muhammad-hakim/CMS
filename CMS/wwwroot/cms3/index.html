@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>الدليل المبسط لضوابط الاستيراد والتصدير في المملكة العربية السعودية</title>
+
+
+    <link href="/cms3/vendor/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/cms3/new/assets/css/animate.css">
+    <link rel="stylesheet" href="/cms3/new/assets/css/custom_style.css">
+    <link rel="icon" type="" href="/cms3/new/fav-icon.png">
+
+</head>
+
+<body class="[[LG]] static">
+    <div id="app">
+        <div id="splash">
+            <transition name="fade">
+                <div class="splash" v-if="isSplashNeeded"
+                     style="position:fixed; top:0;left:0;right:0;bottom:0;background-color:#efefef">
+                    <div class="linear-activity">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
+            </transition>
+        </div>
+        <div class="outer_container">
+            <div id="fasahHeader">
+
+
+                <header class="navBar" v-bind:class="{sticky: isSticky}" v-bind:style="{top:headerTop}">
+                    <div class="container">
+                        <a href="https://fasah.sa" class="logo mobLogo"></a>
+                        <div class="navBarBtn" @click="navBarToggle" v-bind:class="{opened: navBarOpened}">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <transition name="slide">
+                            <div class="navBarr_inner" v-show="navBarOpened">
+                                <a href="https://fasah.sa" class="logo"></a>
+                                <a href="https://www.fasah.sa/trade/home/ar/services.html" data-i18n="fasahHeader.header_services"></a>
+                                <a href="https://www.fasah.sa/24hour/"
+                                   target="_blank" data-i18n="fasahHeader.header_initiative_24"></a>
+                                <a target="_blank"
+                                   href="https://www.fasah.sa/sanam/sau/SAUTrackingServlet?action_=trackingHome&locale=[[LG]]" data-i18n="fasahHeader.header_masar"></a>
+
+                                <a target="_blank" href="https://vin.fasah.sa" data-i18n="fasahHeader.header_vinCheck"></a>
+                                <a target="_blank"
+                                   href="'https://www.fasah.sa/trade/sau/html/ar_SA/index.html?lang=[[LG]]" data-i18n="fasahHeader.header_openData"></a>
+
+                                <div class="dropdown">
+
+                                    <span data-i18n="fasahHeader.header_licenses"></span>
+                                    <transition name="slide">
+                                        <div class="dropdown_menu">
+                                            <a target="_blank" href="https://signup.fasah.sa/" data-i18n="fasahHeader.header_licenses_mawaniLicenses">
+                                                <span data-i18n="fasahHeader.header_licenses_mawaniLicenses"></span>
+                                            </a>
+                                            <a target="_blank" href="https://cbroker.fasah.sa/">
+                                                <span data-i18n="fasahHeader.header_licenses_custom_broker_license"></span>
+                                            </a>
+                                        </div>
+                                    </transition>
+                                </div>
+
+                                <div class="dropdown">
+
+                                    <span data-i18n="fasahHeader.pdfs_h2"></span>
+                                    <transition name="slide">
+                                        <div class="dropdown_menu">
+                                            <a target="_blank"
+                                               href="https://www.fasah.sa/trade/home/assets/pdfs/new-user-registration-in-fasah-services.pdf">
+                                                <img :src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                                <span data-i18n="fasahHeader.pdfs_newUser"></span>
+                                            </a>
+                                            <a target="_blank"
+                                               href="https://www.fasah.sa/trade/home/assets/pdfs/fasah-registration-form-terms-and-condition.pdf">
+                                                <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                                <span data-i18n="fasahHeader.pdfs_services"></span>
+                                            </a>
+                                            <a target="_blank"
+                                               href="https://www.fasah.sa/trade/home/assets/pdfs/de-registrations-form-from-fasah-services.pdf">
+                                                <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                                <span data-i18n="fasahHeader.pdfs_deReg"></span>
+                                            </a>
+                                            <a target="_blank"
+                                               href="https://www.fasah.sa/trade/home/assets/pdfs/re-registrations-form-in-fasah-services.pdf">
+                                                <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                                <span data-i18n="fasahHeader.pdfs_reReg"></span>
+                                            </a>
+                                            <a target="_blank"
+                                               href="https://www.fasah.sa/trade/home/assets/pdfs/reactive-user-id-form-in-fasah-services.pdf">
+                                                <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                                <span data-i18n="fasahHeader.pdfs_reActive"></span>
+                                            </a>
+                                            <a target="_blank"
+                                               href="https://www.fasah.sa/trade/home/assets/pdfs/password-reset-form-in-fasah-services.pdf">
+                                                <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                                <span data-i18n="fasahHeader.pdfs_resetPass"></span>
+                                            </a>
+                                            <a target="_blank"
+                                               href="https://www.fasah.sa/trade/home/assets/pdfs/application-form-agreement-of-electronic-payment-services.pdf">
+                                                <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                                <span data-i18n="fasahHeader.pdfs_agreement"></span>
+                                            </a>
+                                            <a target="_blank"
+                                               href="https://www.fasah.sa/trade/home/assets/pdfs/update-email-form-in-fasah-services.pdf">
+                                                <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                                <span data-i18n="fasahHeader.pdfs_updateEmail"></span>
+                                            </a>
+                                            <a target="_blank"
+                                               href="https://www.fasah.sa/trade/home/assets/pdfs/suspension-request-form-in-fasah-services.pdf">
+                                                <img v-bind:src="'/cms3/new/assets/images/pdf_icon.svg'">
+                                                <span data-i18n="fasahHeader.pdfs_suspension"></span>
+                                            </a>
+                                        </div>
+                                    </transition>
+                                </div>
+                                <a href="https://www.fasah.sa/" data-i18n="fasahHeader.header_contact"></a>
+                                <span>|</span>
+                                <span class="langSwitch"></span>
+
+                                <!--<a href="javascript:void(0)" @click="LoginLogoutUser()">{{Loggedinstatus=="Login"?"Login":"Logout"}}</a>-->
+                                <a @click="LoginLogoutUser(vueLoggedinstatus)" href="javascript:void(0)"
+                                   class="login_btn">
+                                    <img v-bind:src="'/cms3/new/assets/images/login_person.svg'" />
+                                    <span v-if="vueLoggedinstatus === 'Logout'" data-i18n="logout"></span>
+                                    <span v-if="vueLoggedinstatus !== 'Logout'" data-i18n="fasahHeader.header_login"></span>
+                                </a>
+                            </div>
+                        </transition>
+                    </div>
+
+
+                </header>
+            </div>
+            <div class="header_spacer"></div>
+
+            <div class="wide wide_search relative">
+                <div class="wide--bg white">
+                    <div class="container quick-links">
+                        <div class="row">
+                            <ul class="quick-links--list">
+                                <li>
+                                    <a href="#"><img src="/cms3/new/assets/images/icons/video-icon.svg"> <span>فيديو</span></a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="/cms3/new/assets/images/icons/reports.svg"> <span>
+                                            نماذج وضوابط
+                                            تنظيمية
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="/cms3/new/assets/images/icons/links.svg"> <span>
+                                            روابط مهمة لتيسير
+                                            التجارة
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="/cms3/new/assets/images/icons/statistics.svg"> <span>
+                                            مؤشرات أدء عامة
+                                            وإحصائيات
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row text-right">
+                        <div class="col-12">
+                            <h2 class="title_1" data-i18n="guideline_Title"></h2>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="wide-search" id="searchData">
+                    <div class="container">
+                        <div class="row search-row">
+                            <div class="col-12 mt_2">
+                                <!--<form id="header_options" onsubmit="Search(); return false;">
+                                    <div class="relative relative_search relative_search--filter">
+                                        <input id="searchBar" type="text" class="main_search form-control"
+                                               placeholder="البحث" />
+                                        <select id="searchDrpdown" class="form-control dropdown my-2">
+                                            <option value="">Select filter</option>
+                                            <option v-for="o in subjDescs" :value="o">
+                                                {{o}}
+                                            </option>
+                                        </select>
+                                        <button class="btn-primary btn-search" type="submit" onclick="Search();"
+                                                data-i18n="search">
+                                            بحث
+                                        </button>
+                                    </div>
+                                </form>-->
+                                <!--<form id="header_options" onsubmit="Search(); return false;">-->
+                                <!--Modified by Kalam on 13/02/2020, for pervent submit operation-->
+                                <form id="header_options" v-on:submit.prevent="noop">
+                                    <div class="relative relative_search relative_search--filter relative_search--multi">
+                                        <select id="searchDrpdown" class="form-control dropdown my-2">
+                                            <option value="" data-i18n="please_select">الرجاء الاختيار</option>
+                                            <option v-for="o in subjDescs" :value="o">
+                                                {{o}}
+                                            </option>
+                                        </select>
+                                        <!--Added by Kalam on 13/02/2020, for search by enter key-->
+                                        <input id="searchTxtbox" type="text" v-on:keyup.13="searchResult" class="main_search form-control" data-i18n="[placeholder]search" />
+                                        <button class="btn-primary btn-search" type="button" onclick="SearchContent();" data-i18n="search">بحث</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container content-container">
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="page-title text-blue" data-i18n="Governmental_agencies"></h2>
+                    </div>
+                </div>
+
+                <!--<div id="sites" class="row">
+
+                    <div class="col-md-4" v-for="site, i in sites">
+                        <h3>{{site.name.[[LG]]}}</h3>
+                        <p v-if="site.description">{{site.description.[[LG]]}}</p>
+                        <p>
+                            <a :href="'[[LG]]/'+site.code" class="btn btn-secondary active" role="button" aria-pressed="true">
+                                {{site.more.[[LG]]}}
+                            </a>
+                        </p>
+                    </div>
+
+                </div>-->
+
+                <div id="sites" class="row">
+
+                    <div class="col-sm-4" v-for="site, i in sites" v-if="!site.filteredOut">
+
+                        <div class="organization" >
+                            <a :href="'/cms3/ui/[[LG]]/'+site.code">
+                                <div class="o_logo"><img v-bind:src="site.logoLink" v-bind:alt="site.name.[[LG]]"></div>
+                                <div class="o_title">
+
+                                    {{site.name.[[LG]]}}
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <footer>
+                <div class="container">
+                    <div class="footer_nav">
+                        <a href="https://www.fasah.sa/trade/home/ar/">
+                            <img src="/cms3/new/assets/images/logo_black.svg"
+                                 class="footer_logo">
+                        </a>
+                        <a href="https://www.fasah.sa/trade/home/ar/services.html" data-i18n="fasahHeader.header_services"></a>
+                        <a target="_blank" href="https://www.fasah.sa/sanam/sau/SAUTrackingServlet?action_=trackingMap#home-nav" data-i18n="fasahHeader.header_masar"></a>
+                        <a href="https://www.fasah.sa/trade/sau/html/ar_SA/index.html" target="_blank" data-i18n="fasahHeader.header_openData">
+                        </a>
+                        <a href="https://www.fasah.sa/" data-i18n="fasahHeader.header_contact"></a>
+                    </div>
+                    <div class="footer_social">
+                        <label data-i18n="fasahHeader.footer_flowUs"></label>
+                        <a href="https://twitter.com/fasah?lang=AR" target="_blank">
+                            <img src="/cms3/new/assets/images/social_twitter.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="seperator"></div>
+                <div class="container">
+                    <div class="lowerFooter">
+                        <div class="lowerFooter_copyrights" data-i18n="fasahHeader.footer_copyrights"></div>
+                        <div class="lowerFooter_powered">
+                            <label data-i18n="fasahHeader.footer_poweredBy"></label> <a href="http://www.tabadul.sa/" target="_blank">
+                                <span data-i18n="fasahHeader.tabadul"></span>
+                                <img src="/cms3/new/assets/images/tabadullogo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
+<script>
+    let language = '[[LG]]';
+    if (language == 'ar') {
+        var head = document.getElementsByTagName('head')[0];
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '/cms3/new/assets/css/rtl.css';
+        link.media = 'all';
+        head.appendChild(link);
+    }
+</script>
+
+
+
+<!--<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">-->
+<!--<script src="/cms3/vendor/jquery/jquery-3.4.1.min.js" crossorigin="anonymous"></script>-->
+<link href="/cms3/css/jquery-ui.css" rel="stylesheet" />
+<script src="/cms3/vendor/jquery/jquery-1.12.4.js"></script>
+<script src="/cms3/vendor/jquery/jquery-ui.js"></script>
+<!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>-->
+
+<script src="/cms3/vendor/bootstrap/4.4.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="/cms3/vendor/vue/2.6.10/vue.js"></script>
+
+
+<script src="/cms3/vendor/i18next/11.6.0/i18next.min.js"></script>
+<script src="/cms3/vendor/i18next/11.6.0/jquery-i18next.min.js"></script>
+<script src="/cms3/vendor/i18next/11.6.0/i18nextXHRBackend.min.js"></script>
+<script src="/cms3/js/localize.js"></script>
+<script src="/cms3/js/common.js"></script>
+<script src="/cms3/js/index.js"></script>
+
+<!-- <script src="/cms3/js/index_header.js"></script> -->

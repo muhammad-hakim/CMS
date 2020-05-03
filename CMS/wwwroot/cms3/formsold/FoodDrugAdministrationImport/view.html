@@ -1,0 +1,342 @@
+﻿<div class="container content-container " id="">
+
+
+    <div class="row">
+        <div class="col-12">
+            <h2 class="page-title text-blue">
+                <span data-i18n="issuing_export"></span> {{content.subject.[[LG]]}}
+            </h2>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="row">
+                <ul class="tabs">
+
+                    <li v-if="content.body.requirements1.[[LG]].name" @click="changeTab('t1')">
+                        <a href="javascript:void(0)" :class="showTab === 't1' ? 'active' : ''">
+                            {{content.body.requirements1.[[LG]].name}}
+                        </a>
+                    </li>
+                    <li v-if="content.body.requirements2.[[LG]].name" @click="changeTab('t2')">
+                        <a href="javascript:void(0)" :class="showTab === 't2' ? 'active' : ''">
+                            {{content.body.requirements2.[[LG]].name}}
+                        </a>
+                    </li>
+                    <li v-if="content.body.requirements3.[[LG]].name" @click="changeTab('t3')">
+                        <a href="javascript:void(0)" :class="showTab === 't3' ? 'active' : ''">
+                            {{content.body.requirements3.[[LG]].name}}
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="row tab_content" id="t1" v-show="showTab === 't1'" v-if="content.body.requirements1.[[LG]]">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="mini_description row bb-1">
+                                <div class="col-6 text-blue" v-if="content.body.requirements1.[[LG]].serviceTime">
+                                    <div><img src="/cms3/new/assets/images/icons/time.svg" /></div>
+                                    <div>
+                                        <span>مدة تنفيذ الخدمة</span>
+                                        <span>{{content.body.requirements1.[[LG]].serviceTime}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 text-blue" v-if="content.body.requirements1.[[LG]].serviceCost">
+                                    <div><img src="/cms3/new/assets/images/icons/cost.svg" /></div>
+                                    <div>
+                                        <span>رسوم الخدمة</span>
+                                        <span>{{content.body.requirements1.[[LG]].serviceCost}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--<div class="col-sm-7 text-left">
+                            <img src="/cms3/new/assets/images/sample_logo.svg" height="32" />
+                        </div>-->
+
+                    </div>
+
+                    <div class="row data-row">
+
+                        <div class="col-sm-3" v-if="content.body.requirements1.[[LG]].serviceDescription">
+                            <h4><img src="/cms3/new/assets/images/icons/exponantial.svg" /> <span>وصف الخدمة</span></h4>
+                            <div v-html="content.body.requirements1.[[LG]].serviceDescription">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3" v-if="content.body.requirements1.[[LG]].BeneficiaryCategory">
+                            <h4><img src="/cms3/new/assets/images/icons/people.svg"> <span> الفئة المستفيدة</span></h4>
+                            <div v-html="content.body.requirements1.[[LG]].BeneficiaryCategory"></div>
+                        </div>
+                        <div class="col-sm-3" v-if="content.body.requirements1.[[LG]].serviceUse">
+                            <h4><img src="/cms3/new/assets/images/icons/settings.svg"> <span> آلية استخدام الخدمة</span></h4>
+                            <div v-html="content.body.requirements1.[[LG]].serviceUse"></div>
+                        </div>
+                        <div class="col-sm-3" v-if="content.body.requirements1.[[LG]].BasicRequirment">
+                            <h4><img src="/cms3/new/assets/images/icons/person_with_quastion_mark.svg"> <span> المتطلبات الأولية</span></h4>
+                            <div v-html="content.body.requirements1.[[LG]].BasicRequirment"></div>
+                        </div>
+                        <div class="col-sm-12">
+                            <h4>
+                                <img src="/cms3/new/assets/images/icons/document.svg" /> <span>النماذج المطلوبة</span>
+                            </h4>
+
+                            <div v-if="content.attachments && content.attachments.length" class="attachments-list w-100">
+
+                                <div v-if="attachment" v-for="attachment, i in content.attachments" style="display:inline-block;margin:auto; padding: 20px;">
+
+                                    <!--<a v-if="attachment.relation === 'متطلبات الجهة الاولى'" :href="'download/'+attachment.name" readonly-->
+                                        <a v-if="attachment.relation === 'REQ1' || attachment.relation === 'متطلبات الجهة الاولى'" :href="'download/'+attachment.name" readonly
+                                      class="btn-attachment">
+                                        <img v-if="attachment.type === 'PDF'" src="/cms3/new/assets/images/icons/pdf.svg" />
+                                        <!--<img v-if="attachment.type === 'DOC'" src="/cms3/new/assets/images/icons/doc.svg" />-->
+                                        <img v-if="attachment.type === 'DOCX'" src="/cms3/new/assets/images/icons/doc.svg" />
+                                        <span> {{attachment.name.split('.').slice(0, -1).join('.')}}</span>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!--  <div class="row">
+                        <div class="col-12">
+                            <p class=" text-complain">
+                                في حال لم يتم تنفيذ الطلب في الوقت المحدد يمكنك تقديم
+                                شكوى <a class="text-blue" href="#">من هنا</a>
+                            </p>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+
+            <div class="row tab_content" id="t2" v-show="showTab === 't2'" v-if="content.body.requirements2.[[LG]]">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="mini_description row bb-1">
+                                <div class="col-6 text-blue" v-if="content.body.requirements2.[[LG]].serviceTime">
+                                    <div><img src="/cms3/new/assets/images/icons/time.svg" /></div>
+                                    <div>
+                                        <span>مدة تنفيذ الخدمة</span>
+                                        <span>{{content.body.requirements2.[[LG]].serviceTime}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 text-blue" v-if="content.body.requirements2.[[LG]].serviceCost">
+                                    <div><img src="/cms3/new/assets/images/icons/cost.svg" /></div>
+                                    <div>
+                                        <span>رسوم الخدمة</span>
+                                        <span>{{content.body.requirements2.[[LG]].serviceCost}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--<div class="col-sm-7 text-left">
+                            <img src="/cms3/new/assets/images/sample_logo.svg" height="32" />
+                        </div>-->
+
+                    </div>
+
+                    <div class="row data-row">
+                        <div class="col-sm-3" v-if="content.body.requirements2.[[LG]].serviceDescription">
+                            <h4><img src="/cms3/new/assets/images/icons/exponantial.svg" /> <span>وصف الخدمة</span></h4>
+                            <div v-html="content.body.requirements2.[[LG]].serviceDescription">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3" v-if="content.body.requirements2.[[LG]].BeneficiaryCategory">
+                            <h4><img src="/cms3/new/assets/images/icons/people.svg"> <span> الفئة المستفيدة</span></h4>
+                            <div v-html="content.body.requirements2.[[LG]].BeneficiaryCategory"></div>
+                        </div>
+                        <div class="col-sm-3" v-if="content.body.requirements2.[[LG]].serviceUse">
+                            <h4><img src="/cms3/new/assets/images/icons/settings.svg"> <span> آلية استخدام الخدمة</span></h4>
+                            <div v-html="content.body.requirements2.[[LG]].serviceUse"></div>
+                        </div>
+                        <div class="col-sm-3" v-if="content.body.requirements2.[[LG]].BasicRequirment">
+                            <h4><img src="/cms3/new/assets/images/icons/person_with_quastion_mark.svg"> <span> المتطلبات الأولية</span></h4>
+                            <div v-html="content.body.requirements2.[[LG]].BasicRequirment"></div>
+                        </div>
+                        <div class="col-sm-12">
+                            <h4>
+                                <img src="/cms3/new/assets/images/icons/document.svg" /> <span>النماذج المطلوبة</span>
+                            </h4>
+
+
+                            <div v-if="content.attachments && content.attachments.length" class="attachments-list w-100">
+                                <div v-if="attachment" v-for="attachment, i in content.attachments" style="display:inline-block;margin:auto; padding: 20px;">
+                                    <!--<a v-if="attachment.relation === 'متطلبات الجهة الثانية'" :href="'download/'+attachment.name" readonly-->
+                                      <a v-if="attachment.relation === 'REQ2' || attachment.relation === 'متطلبات الجهة الثانية'" :href="'download/'+attachment.name" readonly
+                                      class="btn-attachment">
+                                        <img v-if="attachment.type === 'PDF'" src="/cms3/new/assets/images/icons/pdf.svg" />
+                                        <!--<img v-if="attachment.type === 'DOC'" src="/cms3/new/assets/images/icons/doc.svg" />-->
+                                        <img v-if="attachment.type === 'DOCX'" src="/cms3/new/assets/images/icons/doc.svg" />
+                                        <span> {{attachment.name.split('.').slice(0, -1).join('.')}}</span>
+                                    </a>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <!--  <div class="row">
+                        <div class="col-12">
+                            <p class=" text-complain">
+                                في حال لم يتم تنفيذ الطلب في الوقت المحدد يمكنك تقديم
+                                شكوى <a class="text-blue" href="#">من هنا</a>
+                            </p>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+
+
+
+            <div class="row tab_content" id="t3" v-show="showTab === 't3'" v-if="content.body.requirements3.[[LG]]">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="mini_description row bb-1">
+                                <div class="col-6 text-blue" v-if="content.body.requirements3.[[LG]].serviceTime">
+                                    <div><img src="/cms3/new/assets/images/icons/time.svg" /></div>
+                                    <div>
+                                        <span>مدة تنفيذ الخدمة</span>
+                                        <span>{{content.body.requirements3.[[LG]].serviceTime}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 text-blue" v-if="content.body.requirements3.[[LG]].serviceCost">
+                                    <div><img src="/cms3/new/assets/images/icons/cost.svg" /></div>
+                                    <div>
+                                        <span>رسوم الخدمة</span>
+                                        <span>{{content.body.requirements3.[[LG]].serviceCost}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--<div class="col-sm-7 text-left">
+                            <img src="/cms3/new/assets/images/sample_logo.svg" height="32" />
+                        </div>-->
+
+                    </div>
+
+                    <div class="row data-row">
+                        <div class="col-sm-3" v-if="content.body.requirements3.[[LG]].serviceDescription">
+                            <h4><img src="/cms3/new/assets/images/icons/exponantial.svg" /> <span>وصف الخدمة</span></h4>
+                            <div v-html="content.body.requirements3.[[LG]].serviceDescription">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3" v-if="content.body.requirements3.[[LG]].BeneficiaryCategory">
+                            <h4><img src="/cms3/new/assets/images/icons/people.svg"> <span> الفئة المستفيدة</span></h4>
+                            <div v-html="content.body.requirements3.[[LG]].BeneficiaryCategory"></div>
+                        </div>
+                        <div class="col-sm-3" v-if="content.body.requirements3.[[LG]].serviceUse">
+                            <h4><img src="/cms3/new/assets/images/icons/settings.svg"> <span> آلية استخدام الخدمة</span></h4>
+                            <div v-html="content.body.requirements3.[[LG]].serviceUse"></div>
+                        </div>
+                        <div class="col-sm-3" v-if="content.body.requirements3.[[LG]].BasicRequirment">
+                            <h4><img src="/cms3/new/assets/images/icons/person_with_quastion_mark.svg"> <span> المتطلبات الأولية</span></h4>
+                            <div v-html="content.body.requirements3.[[LG]].BasicRequirment"></div>
+                        </div>
+                        <div class="col-sm-12">
+                            <h4>
+                                <img src="/cms3/new/assets/images/icons/document.svg" /> <span>النماذج المطلوبة</span>
+                            </h4>
+
+                            <div v-if="content.attachments && content.attachments.length" class="attachments-list w-100">
+                                <div v-if="attachment" v-for="attachment, i in content.attachments" style="display:inline-block;margin:auto; padding: 20px;">
+                                    <!--<a v-if="attachment.relation === 'متطلبات الجهة الثالثة'" :href="'download/'+attachment.name" readonly-->
+                                     <a v-if="attachment.relation === 'REQ3' || attachment.relation === 'متطلبات الجهة الثالثة'" :href="'download/'+attachment.name" readonly
+                                   class="btn-attachment">
+                                        <img v-if="attachment.type === 'PDF'" src="/cms3/new/assets/images/icons/pdf.svg" />
+                                        <!--<img v-if="attachment.type === 'DOC'" src="/cms3/new/assets/images/icons/doc.svg" />-->
+                                        <img v-if="attachment.type === 'DOCX'" src="/cms3/new/assets/images/icons/doc.svg" />
+                                        <span> {{attachment.name.split('.').slice(0, -1).join('.')}}</span>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!--  <div class="row">
+                        <div class="col-12">
+                            <p class=" text-complain">
+                                في حال لم يتم تنفيذ الطلب في الوقت المحدد يمكنك تقديم
+                                شكوى <a class="text-blue" href="#">من هنا</a>
+                            </p>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-3 sidebar--item sidebar--item--custom text-center">
+            <div class="logo_container"> <img src="/cms3/new/assets/images/sample_logo.svg"  /></div>
+            <div class=" sidebar--header " style="visibility:hidden;">
+                <img src="/cms3/new/assets/images/icons/docs.svg" width="42" />
+                <p>
+                     {{content.subject.[[LG]]}}
+                </p>
+                <div v-if="content.canRate" class="">
+
+                    <div class='rating-stars text-center'>
+                        <ul id='stars'>
+                            <li class='star' title='Poor' data-value='1'>
+                                <i class='fa fa-star fa-3'></i>
+                            </li>
+                            <li class='star' title='Fair' data-value='2'>
+                                <i class='fa fa-star fa-3'></i>
+                            </li>
+                            <li class='star' title='Good' data-value='3'>
+                                <i class='fa fa-star fa-3'></i>
+                            </li>
+                            <li class='star' title='Excellent' data-value='4'>
+                                <i class='fa fa-star fa-3'></i>
+                            </li>
+                            <li class='star' title='WOW!!!' data-value='5'>
+                                <i class='fa fa-star fa-3'></i>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <span>التقييم 4/5</span>
+                <label>عدد الأصوات 1220</label>
+
+            </div>
+
+            <div class="sidebar-footer">
+                <button class="btn-aqua" style="visibility:hidden;">أضف تعليق</button>
+                <a :href="content.body.guidelineURL_[[LG]]" v-if="content.body.guidelineURL_[[LG]]" target="_blank" class="btn-aqua">
+                    <img src="/cms3/new/assets/images/icons/pdf.svg" /> <span>
+                        حمّل دليل
+                        المستخدم
+                    </span>
+                </a>
+                <a :href="content.body.serviceUrl_[[LG]]" v-if="content.body.serviceUrl_[[LG]]" class="btn-primary w-100" target="_blank">
+                    <img src="/cms3/new/assets/images/icons/rocket.svg" /> <span>
+                        إبدأ
+                        الخدمة
+                    </span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</div>
+

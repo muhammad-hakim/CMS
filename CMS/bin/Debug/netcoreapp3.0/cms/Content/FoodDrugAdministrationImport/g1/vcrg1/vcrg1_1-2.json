@@ -1,0 +1,48 @@
+{
+  
+  "isNew": false,
+  "siteCode": "FoodDrugAdministrationImport",
+  "code": "vcrg1",
+  "version": "1.2",
+  "category": "",
+  "subject": {
+    "ar": "11111vcrg11",
+    "en": null
+  },
+  "description": {
+    "ar": "vcrg11",
+    "en": null
+  },
+  "tags": {
+    "ar": null,
+    "en": null
+  },
+  "ratingsValue": 0,
+  "countPublishedComments": 0,
+  "countVotes": 0,
+  "body": "{\"duration\":{},\"steps\":{},\"requirements\":{},\"attachments\":{},\"requirements1\":{\"ar\":{\"name\":\"vcrg1req11\",\"serviceTime\":\"2\",\"serviceCost\":\"2\",\"serviceDescription\":\"<p>vcrg1req11</p>\",\"BeneficiaryCategory\":\"<p>vcrg1req11</p>\",\"serviceUse\":\"<p>vcrg1req11</p>\",\"BasicRequirment\":\"<p>vcrg1req11</p>\"},\"en\":{},\"attachmentKey\":\"req1\"},\"requirements2\":{\"ar\":{\"name\":\"vcrg11req2\",\"serviceTime\":\"3\",\"serviceCost\":\"3\",\"serviceDescription\":\"<p>vcrg11req2</p>\",\"BeneficiaryCategory\":\"<p>vcrg11req2</p>\",\"serviceUse\":\"<p>vcrg11req2</p>\",\"BasicRequirment\":\"<p>vcrg11req2</p>\"},\"en\":{},\"attachmentKey\":\"req2\"},\"requirements3\":{\"ar\":{\"name\":\"vcrg11req3\",\"serviceTime\":\"4\",\"serviceCost\":\"4\",\"serviceDescription\":\"<p>vcrg11req3</p>\",\"BeneficiaryCategory\":\"<p>vcrg11req3</p>\",\"serviceUse\":\"<p>vcrg11req3</p>\",\"BasicRequirment\":\"<p class=\\\"ql-direction-rtl ql-align-right\\\">vcrg11req3</p>\"},\"en\":{},\"attachmentKey\":\"req3\"},\"requirements4\":{\"list1\":{},\"list2\":{},\"attachmentKey\":\"req4\"},\"requirements5\":{\"list1\":{},\"list2\":{},\"attachmentKey\":\"req5\"},\"url\":{},\"serviceUrl_ar\":\"https://www.sfda.gov.sa/ar/pages/default.aspx\",\"guidelineURL_ar\":\"http://sfdaservice.sfda.gov.sa/\"}",
+  "publishedOnly": true,
+  "IsReject": false,
+  "IsDelete": false,
+  "IsHide": false,
+  "attachments": [
+    {
+      "type": "PDF",
+      "name": "نموذج تسجيل المستورد3.pdf",
+      "relation": "REQ1"
+    },
+    {
+      "type": "PDF",
+      "name": "نموذج تسجيل المستورد (1).pdf",
+      "relation": "REQ2"
+    },
+    {
+      "type": "PDF",
+      "name": "نموذج تسجيل المستورد (2).pdf",
+      "relation": "REQ3"
+    }
+  ],
+  "CanComment": false,
+  "CanRate": false,
+  "CanViewHistory": true
+}

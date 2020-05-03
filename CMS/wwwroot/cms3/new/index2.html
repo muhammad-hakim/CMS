@@ -1,0 +1,638 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fasah</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/animate.css">
+    <link rel="stylesheet" href="./assets/css/custom_style.css">
+    <link rel="stylesheet" href="./assets/css/rtl.css">
+    <link rel="icon" type="" href="./fav-icon.png">
+
+    <script src="./assets/js/aea464e2dd.js"></script>
+    <meta name="Description"
+        content="نافذة إلكترونية موحّدة؛ تعيد هندسة جميع تعاملات وإجراءات الاستيراد والتصدير، لتقدم لك العديد من الخدمات الميسرة للتجارة الدولية؛ بالربط مع الجهات المعنية، وتتبع الشحنات وحجز المواعيد، والدفع الإلكتروني، عبر نافذة إلكترونية موحدة!">
+</head>
+
+<body>
+    <div id="app">
+
+
+        <transition name="fade">
+            <div class="splash" v-if="isSplashNeeded"
+                style="position:fixed; top:0;left:0;right:0;bottom:0;background-color:#efefef">
+                <div class="linear-activity">
+                    <div class="indeterminate"></div>
+                </div>
+            </div>
+        </transition>
+        <div class="outer_container">
+            <header class="navBar" v-bind:class="{sticky: isSticky}" v-bind:style="{top:headerTop}">
+                <div class="container">
+                    <a href="https://fasah.sa" class="logo mobLogo"></a>
+                    <div class="navBarBtn" @click="navBarToggle" v-bind:class="{opened: navBarOpened}">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <transition name="slide">
+                        <div class="navBarr_inner" v-show="navBarOpened">
+                            <a href="https://fasah.sa" class="logo"></a>
+                            <a v-bind:href="root_with_lang+'/services.html'">{{localizationData.header_services}}</a>
+                            <a :href="currentLang=='AR'? 'https://www.fasah.sa/24hour/': 'https://www.fasah.sa/24hourEN/'"
+                                target="_blank">{{localizationData.header_initiative_24}}</a>
+                            <a target="_blank"
+                                v-bind:href="'https://www.fasah.sa/sanam/sau/SAUTrackingServlet?action_=trackingHome&locale='+currentLang.toLowerCase()">{{localizationData.header_masar}}</a>
+
+                            <a target="_blank" href="https://vin.fasah.sa">{{localizationData.header_vinCheck}}</a>
+                            <a target="_blank"
+                                v-bind:href="'https://www.fasah.sa/trade/sau/html/ar_SA/index.html?lang='+currentLang.toLowerCase()">{{localizationData.header_openData}}</a>
+
+                            <div class="dropdown">
+                                {{localizationData.header_licenses}}
+                                <transition name="slide">
+                                    <div class="dropdown_menu">
+                                        <a target="_blank" href="https://signup.fasah.sa/">
+                                            <span>{{localizationData.header_licenses_mawaniLicenses}}</span>
+                                        </a>
+                                        <a target="_blank" href="https://cbroker.fasah.sa/">
+                                            <span>{{localizationData.header_licenses_custom_broker_license}}</span>
+                                        </a>
+                                    </div>
+                                </transition>
+                            </div>
+
+                            <div class="dropdown">
+                                {{localizationData.pdfs_h2}}
+                                <transition name="slide">
+                                    <div class="dropdown_menu">
+                                        <a target="_blank"
+                                            href="./assets/pdfs/new-user-registration-in-fasah-services.pdf"><img
+                                                :src="'./assets/images/pdf_icon.svg'">
+                                            <span>{{localizationData.pdfs_newUser}}</span>
+                                        </a>
+                                        <a target="_blank"
+                                            href="./assets/pdfs/fasah-registration-form-terms-and-condition.pdf"><img
+                                                v-bind:src="'./assets/images/pdf_icon.svg'">
+                                            <span>{{localizationData.pdfs_services}}</span>
+                                        </a>
+                                        <a target="_blank"
+                                            href="./assets/pdfs/de-registrations-form-from-fasah-services.pdf"><img
+                                                v-bind:src="'./assets/images/pdf_icon.svg'">
+                                            <span>{{localizationData.pdfs_deReg}}</span>
+                                        </a>
+                                        <a target="_blank"
+                                            href="./assets/pdfs/re-registrations-form-in-fasah-services.pdf"><img
+                                                v-bind:src="'./assets/images/pdf_icon.svg'">
+                                            <span>{{localizationData.pdfs_reReg}}</span>
+                                        </a>
+                                        <a target="_blank"
+                                            href="./assets/pdfs/reactive-user-id-form-in-fasah-services.pdf"><img
+                                                v-bind:src="'./assets/images/pdf_icon.svg'">
+                                            <span>{{localizationData.pdfs_reActive}}</span>
+                                        </a>
+                                        <a target="_blank"
+                                            href="./assets/pdfs/password-reset-form-in-fasah-services.pdf"><img
+                                                v-bind:src="'./assets/images/pdf_icon.svg'">
+                                            <span>{{localizationData.pdfs_resetPass}}</span>
+                                        </a>
+                                        <a target="_blank"
+                                            href="./assets/pdfs/application-form-agreement-of-electronic-payment-services.pdf"><img
+                                                v-bind:src="'./assets/images/pdf_icon.svg'">
+                                            <span>{{localizationData.pdfs_agreement}}</span>
+                                        </a>
+                                        <a target="_blank"
+                                            href="./assets/pdfs/update-email-form-in-fasah-services.pdf"><img
+                                                v-bind:src="'./assets/images/pdf_icon.svg'">
+                                            <span>{{localizationData.pdfs_updateEmail}}</span>
+                                        </a>
+                                        <a target="_blank"
+                                            href="./assets/pdfs/suspension-request-form-in-fasah-services.pdf"><img
+                                                v-bind:src="'./assets/images/pdf_icon.svg'">
+                                            <span>{{localizationData.pdfs_suspension}}</span>
+                                        </a>
+                                    </div>
+                                </transition>
+                            </div>
+                            <a href="javascript:void(0)"
+                                @click="showContactUs()">{{localizationData.header_contact}}</a>
+                            <span>|</span>
+                            <a href="javascript:void(0)" @click="changeLanguage()">{{currentLang=='AR'?'EN':'AR'}}</a>
+                            <a :href="'https://' +environment+'.fasah.sa/sanam/pfk/PfkMainServlet?pContents=/sau/sauWalkinUrl.jsp&pAction=FIRST&pPortalId=SAU'"
+                                class="login_btn">
+                                <img v-bind:src="'./assets/images/login_person.svg'" />
+                                {{localizationData.header_login}}
+                            </a>
+                        </div>
+                    </transition>
+                </div>
+
+
+            </header>
+            <div class="header_spacer"></div>
+
+            <div class="wide wide_search wide_search--inner relative">
+                <div class="wide--bg white">
+                    <div class="container quick-links">
+                        <div class="row">
+                            <ul class="quick-links--list">
+                                <li><a href="#"><img src="assets/images/icons/video-icon.svg"> <span>فيديو</span></a>
+                                </li>
+                                <li><a href="#"><img src="assets/images/icons/reports.svg"> <span>نماذج وضوابط
+                                            تنظيمية</span></a>
+                                </li>
+                                <li><a href="#"><img src="assets/images/icons/links.svg"> <span>روابط مهمة لتيسير
+                                            التجارة</span></a>
+                                </li>
+                                <li><a href="#"><img src="assets/images/icons/statistics.svg"> <span>مؤشرات أدء عامة
+                                            وإحصائيات</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row text-right">
+                        <div class="col-12">
+                            <h2 class="title_1 ">الدليل المبسط لضوابط الاستيراد والتصدير في المملكة العربية
+                                السعودية</h2>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="wide-search">
+                    <div class="container">
+                        <div class="row search-row">
+                            <div class="col-12 mt_2">
+                                <form>
+                                    <div class="relative relative_search">
+                                        <input type="text" class="main_search form-control"
+                                            placeholder="البحث، الصنف أو الوصف أو البند" />
+                                        <button type="submit" class="btn-primary btn-search">بحث</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container content-container ">
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="page-title text-blue">
+                            <script>
+                                if (window.location.search.substr(1) == 'export') {
+                                    document.write('إصدار إذن تصدير للأدوية والنباتات الطبية');
+                                } else {
+                                    document.write('إصدار إذن إستيراد للأدوية والنباتات الطبية');
+                                }
+
+                            </script>
+                        </h2>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <ul class="tabs">
+                        <li><a href="javascript:void(0)" @click="changeTab('t1')"
+                                :class="showTab === 't1' ? 'active' : ''">متطلبات هيئة الغذاء
+                                والدواء</a></li>
+                        <li><a href="javascript:void(0)" @click="changeTab('t2')"
+                                :class="showTab === 't2' ? 'active' : ''">متطلبات وزارة الداخلية</a></li>
+                        <li><a href="javascript:void(0)" @click="changeTab('t3')"
+                                :class="showTab === 't3' ? 'active' : ''">المديرية العامة للمخدرات</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="row tab_content" v-show="showTab === 't1'" id="t1">
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="mini_description row bb-1">
+                                    <div class="col-6 text-blue">
+                                        <div><img src="assets/images/icons/time.svg" /></div>
+                                        <div>
+                                            <span>مدة تنفيذ الخدمة</span>
+                                            <span>3 أيام</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-blue">
+                                        <div><img src="assets/images/icons/cost.svg" /></div>
+                                        <div>
+                                            <span>رسوم الخدمة</span>
+                                            <span>1000 ريال</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-7 text-left">
+                                <img src="assets/images/sample_logo.svg" height="32" />
+                            </div>
+
+                        </div>
+
+                        <div class="row data-row">
+                            <div class="col-sm-3">
+                                <h4><img src="assets/images/icons/exponantial.svg" /> <span>وصف الخدمة</span></h4>
+                                <p>
+                                    تمكنك هذه الخدمة من تقديم طلب اصدار اذن تصدير للأدوية والنباتات الطبية إلكترونياً
+                                    دون الحاجة إلى مراجعة فروع الوزارة. ويتم ذلك من خلال منصة فسح بالتعاون مع الجهة
+                                    الحكومية المعنية
+                                </p>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4><img src="assets/images/icons/people.svg" /> <span>الفئة المستفيدة</span></h4>
+                                <ul>
+                                    <li>التاجر</li>
+                                    <li>شركة الشحن</li>
+                                    <li>المخلص الجمركي</li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4><img src="assets/images/icons/settings.svg" /> <span>آلية استخدام الخدمة</span></h4>
+                                <ul>
+                                    <li>تسجيل الدخول في فسح</li>
+                                    <li> اختيار التراخيص الخاصة لهيئة الغذاء والدواء</li>
+                                    <li>تحديد الترخيص المعني</li>
+                                    <li> اختيار الخدمة والبدء في تقديم الطلب 5 - تقديم الطلب ومتابعته</li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4><img src="assets/images/icons/person_with_quastion_mark.svg" /> <span>المتطلبات
+                                        الأولية</span>
+                                </h4>
+                                <ul>
+                                    <li>هوية وطنية</li>
+                                    <li>سجل تجاري ساري</li>
+                                    <li>رخصة مزاولة مهنة</li>
+
+                                </ul>
+                            </div>
+                            <div class="col-sm-12">
+                                <h4><img src="assets/images/icons/document.svg" /> <span>النماذج المطلوبة</span>
+                                </h4>
+                                <div class="attachments-list w-100">
+                                    <a href="https://www.sfda.gov.sa/ar/drug/resources/DocLib2/SFDA-Clearance1.4.pdf"
+                                        class="btn-attachment"><img src="assets/images/icons/doc.svg" /> <span>شروط
+                                            ومتطلبات الفسح</span></a>
+                                    <a href="https://www.sfda.gov.sa/ar/drug/resources/DocLib2/SFDA-Clearance1.4.pdf"
+                                        class="btn-attachment"><img src="assets/images/icons/pdf.svg" /> <span>تسجيل
+                                            المنشأة</span></a>
+                                    <a href="https://www.sfda.gov.sa/ar/drug/resources/DocLib2/SFDA-Clearance1.4.pdf"
+                                        class="btn-attachment"><img src="assets/images/icons/pdf.svg" />
+                                        <span>الأدلة الإرشادية الخاصة بالمستحضرات البيطرية</span></a>
+                                    <a href="https://www.sfda.gov.sa/ar/drug/resources/DocLib2/SFDA-Clearance1.4.pdf"
+                                        class="btn-attachment"><img src="assets/images/icons/doc.svg" />
+                                        <span>نموذج استرداد المقابل المالي... </span></a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p class=" text-complain">في حال لم يتم تنفيذ الطلب في الوقت المحدد يمكنك تقديم
+                                    شكوى <a class="text-blue" href="#">من هنا</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 sidebar--item text-center">
+                        <div class=" sidebar--header">
+                            <img src="assets/images/icons/docs.svg" width="42" />
+                            <p>
+                                إصدار إذن تصدير للأدوية والنباتات الطبية
+                            </p>
+                            <div class="rating_placeholder">
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star-o"></span>
+
+                            </div>
+                            <span>التقييم 4/5</span>
+                            <label>عدد الأصوات 1220</label>
+
+                        </div>
+
+                        <div class="sidebar-footer">
+                            <button class="btn-aqua">أضف تعليق</button>
+                            <a href="http://sfdaservice.sfda.gov.sa/" target="_blank" class="btn-aqua"><img
+                                    src="assets/images/icons/pdf.svg" /> <span>حمّل دليل
+                                    المستخدم</span></a>
+                            <button class="btn-primary w-100"><img src="assets/images/icons/rocket.svg" /> <span>إبدأ
+                                    الخدمة</span></button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="row tab_content" v-show="showTab === 't2'" id="t2">
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="mini_description row bb-1">
+                                    <div class="col-6 text-blue">
+                                        <div><img src="assets/images/icons/time.svg" /></div>
+                                        <div>
+                                            <span>مدة تنفيذ الخدمة</span>
+                                            <span>13 أيام</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-blue">
+                                        <div><img src="assets/images/icons/cost.svg" /></div>
+                                        <div>
+                                            <span>رسوم الخدمة</span>
+                                            <span>3000 ريال</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-7 text-left">
+                                <img src="assets/images/sample_logo.svg" height="32" />
+                            </div>
+
+                        </div>
+
+                        <div class="row data-row">
+                            <div class="col-sm-3">
+                                <h4><img src="assets/images/icons/exponantial.svg" /> <span>وصف الخدمة</span></h4>
+                                <p>
+                                    تمكنك هذه الخدمة من تقديم طلب اصدار اذن تصدير للأدوية والنباتات الطبية إلكترونياً
+                                    دون الحاجة إلى مراجعة فروع الوزارة. ويتم ذلك من خلال منصة فسح بالتعاون مع الجهة
+                                    الحكومية المعنية
+                                </p>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4><img src="assets/images/icons/people.svg" /> <span>الفئة المستفيدة</span></h4>
+                                <ul>
+                                    <li>التاجر</li>
+                                    <li>شركة الشحن</li>
+                                    <li>المخلص الجمركي</li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4><img src="assets/images/icons/settings.svg" /> <span>آلية استخدام الخدمة</span></h4>
+                                <ul>
+                                    <li>تسجيل الدخول في فسح</li>
+                                    <li> اختيار التراخيص الخاصة لهيئة الغذاء والدواء</li>
+                                    <li>تحديد الترخيص المعني</li>
+                                    <li> اختيار الخدمة والبدء في تقديم الطلب 5 - تقديم الطلب ومتابعته</li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4><img src="assets/images/icons/person_with_quastion_mark.svg" /> <span>المتطلبات
+                                        الأولية</span>
+                                </h4>
+                                <ul>
+                                    <li>هوية وطنية</li>
+                                    <li>سجل تجاري ساري</li>
+                                    <li>رخصة مزاولة مهنة</li>
+
+                                </ul>
+                            </div>
+                            <div class="col-sm-12">
+                                <h4><img src="assets/images/icons/document.svg" /> <span>النماذج المطلوبة</span>
+                                </h4>
+                                <div class="attachments-list w-100">
+                                    <a href="https://www.sfda.gov.sa/ar/drug/resources/DocLib2/SFDA-Clearance1.4.pdf"
+                                        class="btn-attachment"><img src="assets/images/icons/doc.svg" /> <span>شروط
+                                            ومتطلبات الفسح</span></a>
+                                    <a href="https://www.sfda.gov.sa/ar/drug/resources/DocLib2/SFDA-Clearance1.4.pdf"
+                                        class="btn-attachment"><img src="assets/images/icons/pdf.svg" /> <span>تسجيل
+                                            المنشأة</span></a>
+                                    <a href="https://www.sfda.gov.sa/ar/drug/resources/DocLib2/SFDA-Clearance1.4.pdf"
+                                        class="btn-attachment"><img src="assets/images/icons/pdf.svg" />
+                                        <span>الأدلة الإرشادية الخاصة بالمستحضرات البيطرية</span></a>
+                                    <a href="https://www.sfda.gov.sa/ar/drug/resources/DocLib2/SFDA-Clearance1.4.pdf"
+                                        class="btn-attachment"><img src="assets/images/icons/doc.svg" />
+                                        <span>نموذج استرداد المقابل المالي... </span></a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p class=" text-complain">في حال لم يتم تنفيذ الطلب في الوقت المحدد يمكنك تقديم
+                                    شكوى <a class="text-blue" href="#">من هنا</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 sidebar--item text-center">
+                        <div class=" sidebar--header">
+                            <img src="assets/images/icons/docs.svg" width="42" />
+                            <p>
+                                إصدار إذن تصدير للأدوية والنباتات الطبية
+                            </p>
+                            <div class="rating_placeholder">
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star-o "></span>
+                                <span class="fa fa-star-o "></span>
+
+                            </div>
+                            <span>التقييم 3/5</span>
+                            <label>عدد الأصوات 1220</label>
+
+                        </div>
+
+                        <div class="sidebar-footer">
+                            <button class="btn-aqua">أضف تعليق</button>
+                            <a href="http://sfdaservice.sfda.gov.sa/" target="_blank" class="btn-aqua"><img
+                                    src="assets/images/icons/pdf.svg" /> <span>حمّل دليل
+                                    المستخدم</span></a>
+                            <button class="btn-primary w-100"><img src="assets/images/icons/rocket.svg" /> <span>إبدأ
+                                    الخدمة</span></button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row tab_content" v-show="showTab === 't3'" id="t3">
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="mini_description row bb-1">
+                                    <div class="col-6 text-blue">
+                                        <div><img src="assets/images/icons/time.svg" /></div>
+                                        <div>
+                                            <span>مدة تنفيذ الخدمة</span>
+                                            <span>6 أيام</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-blue">
+                                        <div><img src="assets/images/icons/cost.svg" /></div>
+                                        <div>
+                                            <span>رسوم الخدمة</span>
+                                            <span>7000 ريال</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-7 text-left">
+                                <img src="assets/images/sample_logo.svg" height="32" />
+                            </div>
+
+                        </div>
+
+                        <div class="row data-row">
+                            <div class="col-sm-3">
+                                <h4><img src="assets/images/icons/exponantial.svg" /> <span>وصف الخدمة</span></h4>
+                                <p>
+                                    تمكنك هذه الخدمة من تقديم طلب اصدار اذن تصدير للأدوية والنباتات الطبية إلكترونياً
+                                    دون الحاجة إلى مراجعة فروع الوزارة. ويتم ذلك من خلال منصة فسح بالتعاون مع الجهة
+                                    الحكومية المعنية
+                                </p>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4><img src="assets/images/icons/people.svg" /> <span>الفئة المستفيدة</span></h4>
+                                <ul>
+                                    <li>التاجر</li>
+                                    <li>شركة الشحن</li>
+                                    <li>المخلص الجمركي</li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4><img src="assets/images/icons/settings.svg" /> <span>آلية استخدام الخدمة</span></h4>
+                                <ul>
+                                    <li>تسجيل الدخول في فسح</li>
+                                    <li> اختيار التراخيص الخاصة لهيئة الغذاء والدواء</li>
+                                    <li>تحديد الترخيص المعني</li>
+                                    <li> اختيار الخدمة والبدء في تقديم الطلب 5 - تقديم الطلب ومتابعته</li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4><img src="assets/images/icons/person_with_quastion_mark.svg" /> <span>المتطلبات
+                                        الأولية</span>
+                                </h4>
+                                <ul>
+                                    <li>هوية وطنية</li>
+                                    <li>سجل تجاري ساري</li>
+                                    <li>رخصة مزاولة مهنة</li>
+
+                                </ul>
+                            </div>
+                            <div class="col-sm-12">
+                                <h4><img src="assets/images/icons/document.svg" /> <span>النماذج المطلوبة</span>
+                                </h4>
+                                <div class="attachments-list w-100">
+                                    <a href="https://www.sfda.gov.sa/ar/drug/resources/DocLib2/SFDA-Clearance1.4.pdf"
+                                        class="btn-attachment"><img src="assets/images/icons/doc.svg" /> <span>شروط
+                                            ومتطلبات الفسح</span></a>
+                                    <a href="https://www.sfda.gov.sa/ar/drug/resources/DocLib2/SFDA-Clearance1.4.pdf"
+                                        class="btn-attachment"><img src="assets/images/icons/pdf.svg" /> <span>تسجيل
+                                            المنشأة</span></a>
+                                    <a href="https://www.sfda.gov.sa/ar/drug/resources/DocLib2/SFDA-Clearance1.4.pdf"
+                                        class="btn-attachment"><img src="assets/images/icons/pdf.svg" />
+                                        <span>الأدلة الإرشادية الخاصة بالمستحضرات البيطرية</span></a>
+                                    <a href="https://www.sfda.gov.sa/ar/drug/resources/DocLib2/SFDA-Clearance1.4.pdf"
+                                        class="btn-attachment"><img src="assets/images/icons/doc.svg" />
+                                        <span>نموذج استرداد المقابل المالي... </span></a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p class=" text-complain">في حال لم يتم تنفيذ الطلب في الوقت المحدد يمكنك تقديم
+                                    شكوى <a class="text-blue" href="#">من هنا</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 sidebar--item text-center">
+                        <div class=" sidebar--header">
+                            <img src="assets/images/icons/docs.svg" width="42" />
+                            <p>
+                                إصدار إذن تصدير للأدوية والنباتات الطبية
+                            </p>
+                            <div class="rating_placeholder">
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star-o "></span>
+                                <span class="fa fa-star-o "></span>
+                                <span class="fa fa-star-o "></span>
+
+                            </div>
+                            <span>التقييم 2/5</span>
+                            <label>عدد الأصوات 1220</label>
+
+                        </div>
+
+                        <div class="sidebar-footer">
+                            <button class="btn-aqua">أضف تعليق</button>
+                            <a href="http://sfdaservice.sfda.gov.sa/" target="_blank" class="btn-aqua"><img
+                                    src="assets/images/icons/pdf.svg" /> <span>حمّل دليل
+                                    المستخدم</span></a>
+                            <button class="btn-primary w-100"><img src="assets/images/icons/rocket.svg" /> <span>إبدأ
+                                    الخدمة</span></button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <footer>
+                <div class="container">
+                    <div class="footer_nav">
+                        <a href="https://www.fasah.sa/trade/home/ar/"><img src="./assets/images/logo_black.svg"
+                                class="footer_logo"></a> <a
+                            href="https://www.fasah.sa/trade/home/ar/services.html">الخدمات</a> <a target="_blank"
+                            href="https://www.fasah.sa/sanam/sau/SAUTrackingServlet?action_=trackingMap#home-nav">مسار</a>
+                        <a href="https://www.fasah.sa/trade/sau/html/ar_SA/index.html" target="_blank">البيانات
+                            المفتوحة</a> <a href="javascript:void(0)">اتصل بنا</a></div>
+                    <div class="footer_social">
+                        <label>تابعنا</label>
+                        <a href="https://twitter.com/fasah?lang=AR" target="_blank"><img
+                                src="./assets/images/social_twitter.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="seperator"></div>
+                <div class="container">
+                    <div class="lowerFooter">
+                        <div class="lowerFooter_copyrights">جميع الحقوق محفوظة لفسح © 2020</div>
+                        <div class="lowerFooter_powered">
+                            <label>تطوير</label> <a href="http://www.tabadul.sa/" target="_blank">
+                                تبادل
+                                <img src="./assets/images/tabadullogo.png" alt=""></a></div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <script src="./assets/js/babel.min.js"></script>
+
+        <!--<script src="./assets/js/vue.min.js"></script>-->
+        <script src="./assets/js/jquery-3.3.1.min.js"></script>
+
+        <script src="./assets/js/localization_ar.js" type="text/babel"></script>
+
+        <script src="./assets/js/index.js" type="text/babel"></script>
+    </div>
+</body>
+
+</html>
