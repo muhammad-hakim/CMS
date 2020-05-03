@@ -1,9 +1,13 @@
-﻿using CMS.Models;
+﻿using CMS.LiteDbModels;
+using CMS.Models;
+using LiteDB;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace CMS.Controllers
 {
@@ -19,14 +23,14 @@ namespace CMS.Controllers
         private readonly ILogger<ContentsController> _logger;
 
 
-        
+
         public SitesController(ILogger<ContentsController> logger)
         {
             _logger = logger;
-          
+
         }
 
-       //  [RequireHttps]
+        //  [RequireHttps]
         [AllowAnonymous]
         [HttpGet]
         public IActionResult GetList()
@@ -39,7 +43,7 @@ namespace CMS.Controllers
 
                 Site site = Site.GetSite(directoryInfo.Name);
 
-                var contents = ContentSummaryList.GetList(site.code,(!site.canEdit|| HttpContext.Request.Cookies["user_Lognstatus"] == null));
+                var contents = ContentSummaryList.GetList(site.code, (!site.canEdit || HttpContext.Request.Cookies["user_Lognstatus"] == null));
 
                 // Added by Kalam on 26/01/2020, for load the site based on selected category
                 // changed by Imran to check if any category is selected or no.
@@ -87,6 +91,36 @@ namespace CMS.Controllers
             {
                 return Unauthorized(new { success = false });
             }
+        }
+
+        [HttpGet("CloneSites")]
+        public IActionResult CloneSites()
+        {
+            ILiteCollection<SiteLite> sites;
+
+            using (var myData = new LiteDatabase("myData.db"))
+            {
+                sites = myData.GetCollection<SiteLite>("Sites");
+
+                foreach (string directory in Directory.GetDirectories(Config.WWWPath + "forms"))
+                {
+                    var directoryInfo = new DirectoryInfo(directory);
+                    string siteCode = directoryInfo.Name;
+
+                    if (!sites.Exists(s => s.Code == siteCode))
+                    {
+                        var filePath = Config.WWWPath + "forms/" + siteCode + "/" + "site.json";
+                        if (System.IO.File.Exists(filePath))
+                        {
+                            string jsonSite = System.IO.File.ReadAllText(filePath);
+                            Site site = JsonConvert.DeserializeObject<Site>(jsonSite);
+                            SiteLite siteLite = new SiteLite(site);
+                            sites.Insert(siteLite);
+                        }
+                    }
+                }
+            }
+            return Ok(sites.FindAll());
         }
     }
 }
